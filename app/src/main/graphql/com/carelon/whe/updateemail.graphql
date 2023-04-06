@@ -1,0 +1,9 @@
+mutation UpdateEmail($otp: String!, $token: String!, $pingDeviceId: String!, $pingUserId: String!, $pingRiskId: String!){
+    updateEmail(input: {
+        otp: $otp,
+        token: $token,
+        pingRiskId: $pingRiskId,
+        pingUserId: $pingUserId,
+        pingDeviceId : $pingDeviceId
+    })
+}

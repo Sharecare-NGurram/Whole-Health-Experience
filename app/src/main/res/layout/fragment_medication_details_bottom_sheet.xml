@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.carelon.whe.ui.medication_details.MedicationDetailsViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested_scroll_root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_root"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/lnr_top_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_sheet_bg"
+                    android:minHeight="170dp"
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/m30"
+                    android:paddingTop="@dimen/m20"
+                    android:paddingEnd="@dimen/m30"
+                    android:paddingBottom="@dimen/m30">
+
+                    <ImageView
+                        android:id="@+id/img_close"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/m10"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_close_top_bar"
+                        app:tint="@color/black" />
+
+                    <TextView
+                        android:id="@+id/txt_medicine_name"
+                        style="@style/headline_h3_medium_semibold"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/m30"
+                        android:text="@{vm.medicine.name}"
+                        android:gravity="center"
+                        android:textColor="@color/dark_gray"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:text="Diovan HCT" />
+
+                    <TextView
+                        android:id="@+id/txt_medicine_size"
+                        style="@style/body_medium_secondaryLight"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/m10"
+                        android:textColor="@color/medium_gray"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:medicineType="@{vm.medicine}"
+                        tools:text="160mg oral tablet" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <View
+                    android:id="@+id/view_separator"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m2"
+                    android:background="@color/alpha_black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/lnr_top_content" />
+
+                <TextView
+                    android:id="@+id/txt_prescription_details"
+                    style="@style/headline_h4_semiBold_primary.dark_gray"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="@dimen/m30"
+                    android:layout_marginTop="@dimen/m20"
+                    android:text="@string/prescription_details"
+                    android:textColor="@color/dark_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view_separator" />
+
+                <TextView
+                    android:id="@+id/txt_prescribed_by"
+                    style="@style/body_medium_secondaryLight"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="@dimen/m30"
+                    android:layout_marginTop="@dimen/m20"
+                    android:lineSpacingExtra="@dimen/line_spacing_7"
+                    android:text="@string/prescribed_by"
+                    android:textColor="@color/medium_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_prescription_details" />
+
+                <TextView
+                    android:id="@+id/txt_prescribed_by_details"
+                    style="@style/body_medium_secondaryLight"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="@dimen/m30"
+                    android:layout_marginTop="@dimen/m5"
+                    android:lineSpacingExtra="@dimen/line_spacing_7"
+                    android:textColor="@color/dark_gray"
+                    app:doctorDetails="@{vm.medicine}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_prescribed_by"
+                    tools:text="Dr. Judy Jones on July 21, 2022" />
+
+                <TextView
+                    android:id="@+id/txt_last_filled_by"
+                    style="@style/body_medium_secondaryLight"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="@dimen/m30"
+                    android:layout_marginTop="@dimen/m20"
+                    android:lineSpacingExtra="@dimen/line_spacing_7"
+                    android:text="@string/last_filled_by"
+                    android:textColor="@color/medium_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_prescribed_by_details" />
+
+                <TextView
+                    android:id="@+id/txt_last_filled_by_details"
+                    style="@style/body_medium_secondaryLight"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="@dimen/m30"
+                    android:layout_marginTop="@dimen/m5"
+                    android:layout_marginEnd="@dimen/m30"
+                    android:lineSpacingExtra="@dimen/line_spacing_7"
+                    android:lineHeight="@dimen/m25"
+                    android:textColor="@color/dark_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_last_filled_by"
+                    app:pharmacyDetails="@{vm.medicine}"
+                    tools:text="Pharmacy Name on July 22, 2022\n3170 Abrams Drive\nTwinsburg, Ohio, 44087" />
+
+                <TextView
+                    android:id="@+id/txt_view_on_maps"
+                    style="@style/body_medium_secondaryLight"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="@dimen/m30"
+                    android:layout_marginTop="@dimen/m5"
+                    android:lineSpacingExtra="@dimen/line_spacing_7"
+                    android:text="@string/view_on_maps"
+                    android:textColor="@color/purple"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_last_filled_by_details" />
+
+                <EditText
+                    android:id="@+id/edit_add_condition"
+                    style="@style/input_medication_details"
+                    android:layout_marginTop="@dimen/m40"
+                    android:drawableStart="@drawable/ic_filter_grey"
+                    android:hint="@string/add_condition"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:minLines="1"
+                    android:maxLines="1"
+                    android:lineSpacingExtra="@dimen/line_spacing_7"
+                    android:text="@={vm.medicine.condition}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_view_on_maps" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraint_input_add_notes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/m30"
+                    android:layout_marginTop="@dimen/m20"
+                    android:layout_marginEnd="@dimen/m30"
+                    android:background="@drawable/bg_input_pale_gray"
+                    android:minHeight="@dimen/m120"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/edit_add_condition">
+
+                    <ImageView
+                        android:id="@+id/img_filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/m20"
+                        android:layout_marginTop="@dimen/m15"
+                        android:src="@drawable/ic_filter_grey"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:text="@={vm.medicine.notes}"
+                        android:id="@+id/edit_add_notes"
+                        style="@style/input_medication_details"
+                        android:background="@color/transparent"
+                        android:gravity="start"
+                        android:paddingTop="@dimen/m12"
+                        android:hint="@string/add_notes"
+                        android:minHeight="@dimen/m120"
+                        android:lineHeight="@dimen/m25"
+                        android:lineSpacingExtra="@dimen/line_spacing_7"
+                        app:layout_constraintStart_toEndOf="@id/img_filter" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/txt_delete"
+                    style="@style/body_medium_secondaryLight"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="@dimen/m30"
+                    android:layout_marginTop="@dimen/m40"
+                    android:layout_marginBottom="@dimen/m30"
+                    android:drawableStart="@drawable/ic_delete"
+                    android:drawablePadding="@dimen/m25"
+                    android:lineSpacingExtra="@dimen/line_spacing_7"
+                    android:paddingBottom="@dimen/m30"
+                    android:text="@string/im_not_taking_this_any_more"
+                    android:textColor="@color/red_terra_cotta"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/constraint_input_add_notes" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

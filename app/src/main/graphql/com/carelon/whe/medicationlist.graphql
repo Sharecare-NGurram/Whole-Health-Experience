@@ -1,0 +1,17 @@
+query MedicationListQuery {
+    wholeHealth {
+        dispensedMedications {
+            details {
+                dosageForm
+                nonProprietaryName
+                proprietaryName
+                route
+                strength
+            }
+            daysSupply
+            ndcPackageCode
+            quantity
+            whenHandedOver
+        }
+    }
+}

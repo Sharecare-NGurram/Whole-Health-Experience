@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.carelon.whe.ui.add_medication.AddMedicationViewModel" />
+    </data>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/pale_gray"
+        android:paddingStart="@dimen/common_padding_start"
+        android:paddingTop="@dimen/m20"
+        android:paddingEnd="@dimen/common_padding_end">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
+
+            <ImageView
+                android:id="@+id/img_close"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/m48"
+                android:paddingTop="@dimen/m16"
+                android:paddingEnd="@dimen/m16"
+                android:paddingBottom="@dimen/m16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_close_top_bar"
+                app:tint="@color/black" />
+
+            <TextView
+                android:id="@+id/txt_title"
+                style="@style/headline_h5_medium_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/add_medications"
+                app:layout_constraintBottom_toBottomOf="@id/img_close"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/img_close" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintDataFetch"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/m30"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_title"
+                app:visibility="@{!vm.isFailedToFetch}">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:visibility="@{vm.isLoading}">
+
+                    <ProgressBar
+                        android:id="@+id/progress"
+                        android:layout_width="@dimen/m80"
+                        android:layout_height="@dimen/m80"
+                        android:indeterminateDrawable="@drawable/bg_progress_bar"
+                        android:indeterminateTintMode="src_atop"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_loading"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/progress" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.core.widget.NestedScrollView
+                    android:id="@+id/nestedScroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true"
+                    android:overScrollMode="never"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/card_medicines"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="@dimen/m10"
+                            app:cardElevation="0dp"
+                            app:visibility="@{!vm.isLoading}">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/m12">
+
+                                <TextView
+                                    android:id="@+id/txt_header"
+                                    style="@style/body_medium_xlarge_primary.dark_gray"
+                                    android:layout_marginStart="@dimen/m10"
+                                    android:layout_marginEnd="@dimen/m10"
+                                    android:lineHeight="@dimen/m25"
+                                    android:lineSpacingExtra="@dimen/line_spacing_7"
+                                    android:text="@string/which_medications_still_taking"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/txt_subHeader"
+                                    style="@style/body_medium_regular_primary"
+                                    android:layout_marginStart="@dimen/m10"
+                                    android:layout_marginTop="@dimen/m5"
+                                    android:layout_marginEnd="@dimen/m10"
+                                    android:lineSpacingExtra="@dimen/m5"
+                                    android:text="@string/select_medications_info"
+                                    android:textColor="@color/medium_gray"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/txt_header" />
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/recyclerMedicines"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                                    android:layout_marginStart="@dimen/m10"
+                                    android:layout_marginTop="@dimen/m10"
+                                    android:layout_marginEnd="@dimen/m10"
+                                    android:layout_marginBottom="@dimen/m10"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/txt_subHeader"
+                                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <Button
+                            android:id="@+id/btn_submit"
+                            style="@style/button_medium_purple"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/m30"
+                            android:background="@drawable/button_gray_rounded"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:layout_marginBottom="@dimen/m30"
+                            android:minHeight="@dimen/m50"
+                            android:text="@{vm.buttonText}"
+                            android:textAlignment="center"
+                            app:layout_constrainedWidth="true"
+                            app:visibility="@{!vm.isLoading &amp;&amp; !vm.isFailedToFetch}" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.core.widget.NestedScrollView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintDataFetchFailed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/m20"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:visibility="@{vm.isFailedToFetch}">
+
+                <ImageView
+                    android:id="@+id/img_failed_to_fetch"
+                    android:layout_width="@dimen/m60"
+                    android:layout_height="@dimen/m60"
+                    android:src="@drawable/ic_something_went_wrong"
+                    android:tint="#D7D7DB"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_failed_to_fetch_header"
+                    style="@style/headline_h4_semiBold_primary"
+                    android:layout_marginTop="@dimen/m30"
+                    android:text="@string/something_went_wrong"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_failed_to_fetch" />
+
+                <TextView
+                    android:id="@+id/txt_failed_to_fetch_info"
+                    style="@style/body_17_medium_secondaryLight"
+                    android:layout_marginTop="@dimen/m10"
+                    android:gravity="center"
+                    android:lineSpacingExtra="@dimen/line_spacing_7"
+                    android:text="@string/add_medications_error_info"
+                    android:textSize="@dimen/text_medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_failed_to_fetch_header" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_try_again"
+                    style="@style/button_try_again"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/m20"
+                    android:minHeight="@dimen/m50"
+                    android:onClick="@{() -> vm.fetchMedicine()}"
+                    android:paddingStart="@dimen/m20"
+                    android:paddingTop="@dimen/m15"
+                    android:paddingEnd="@dimen/m20"
+                    android:paddingBottom="@dimen/m15"
+                    android:text="@string/try_again"
+                    android:textColor="@color/purple"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_failed_to_fetch_info" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

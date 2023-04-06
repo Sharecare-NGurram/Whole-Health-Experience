@@ -1,0 +1,20 @@
+{
+  "features": [
+    {
+      "id": 1,
+      "description":"Form healthy habits with tools like a short list to keep your weeks on track"
+    },
+    {
+      "id": 2,
+      "description":"Earn real money just by doing\nwhat you already do"
+    },
+    {
+      "id": 3,
+      "description":"Enjoy the perks of other\nbonus offers"
+    },
+    {
+      "id": 4,
+      "description":"Cash out your rewards to a\nVisa gift card"
+    }
+  ]
+}

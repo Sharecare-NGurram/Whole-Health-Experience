@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="medicineDataModel"
+            type="com.carelon.whe.domain.model.Medicine" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/text_medicine"
+            style="@style/body_17_semiBold_secondary"
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/m15"
+            android:layout_marginEnd="@dimen/m10"
+            android:drawableStart="@drawable/ic_medicine"
+            android:drawablePadding="@dimen/m12"
+            android:drawableTint="@color/white"
+            android:text="@{medicineDataModel.name}"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toStartOf="@+id/checkbox_selected"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Fancy Medication" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/checkbox_selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:checked="@{medicineDataModel.isSelected}"
+            app:buttonTint="@color/checkbox_filter_tint"
+            app:layout_constraintBottom_toBottomOf="@+id/text_medicine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/text_medicine" />
+
+        <View
+            android:id="@+id/view_separator"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/m2"
+            android:layout_marginTop="@dimen/m15"
+            android:background="@color/button_light_white"
+            app:layout_constraintTop_toBottomOf="@+id/text_medicine" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

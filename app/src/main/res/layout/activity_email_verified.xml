@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.carelon.whe.ui.email_verification.email_verified.EmailVerifiedViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_tick"
+                android:layout_width="@dimen/m80"
+                android:layout_height="@dimen/m80"
+                android:padding="@dimen/m20"
+                android:src="@drawable/ic_email_confirm_tick"
+                android:background="@drawable/ic_purple_circle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/txt_email_verified"
+                style="@style/headline_h2_semiBold_primary"
+                android:layout_marginTop="@dimen/m54"
+                android:gravity="center"
+                android:text="@string/email_verified"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/img_tick" />
+
+            <TextView
+                android:id="@+id/txt_email_verified_info"
+                style="@style/body_17_medium_secondaryLight"
+                android:layout_marginTop="@dimen/m10"
+                android:gravity="center"
+                android:lineSpacingExtra="@dimen/line_spacing_7"
+                android:text="@string/email_verified_info"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_email_verified" />
+
+
+            <Button
+                android:id="@+id/btn_continue"
+                style="@style/button_medium_purple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/m30"
+                android:layout_marginBottom="@dimen/m30"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:minHeight="@dimen/m50"
+                android:text="@string/continue_str"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_email_verified_info" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

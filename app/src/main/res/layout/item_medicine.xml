@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="medicineDataModel"
+            type="com.carelon.whe.domain.model.MedicationData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/m5"
+        android:background="@drawable/bg_medicine_unselected"
+        android:minHeight="@dimen/m45"
+        android:padding="@dimen/m4"
+        app:medicine="@{medicineDataModel}">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_child"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/m45"
+            android:padding="@dimen/m10">
+
+            <ImageView
+                android:id="@+id/img_medicine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_medicine"
+                app:tint="@color/purple" />
+
+            <TextView
+                android:id="@+id/txt_medicine_name"
+                style="@style/body_17_semiBold_normal"
+                android:layout_marginStart="@dimen/m12"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:lineSpacingExtra="@dimen/line_spacing_7"
+                android:lineHeight="@dimen/m25"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/img_medicine"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Sample medicine name" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,26 @@
+{
+  "medicines": [
+    {
+      "id": "100",
+      "medName": "Candibiotic",
+      "amount": "210mg",
+      "type": "ear drop",
+      "doctorName": "Dr.Judy Jones",
+      "prescriptionDate": "21-02-2023",
+      "pharmacyName": "Dr. Judy Jones",
+      "filledDate": "14-05-2021",
+      "pharmacyAddress": "CVS Health, \nOne CVS Drive, Woonsocket, \nRhode Island 02895, \nUnited States"
+    },
+    {
+      "id": "101",
+      "medName": "Oneshot Diabotic",
+      "amount": "500mg",
+      "type": "oral tablet",
+      "doctorName": "Dr.Judy Jones",
+      "prescriptionDate": "11-06-2022",
+      "pharmacyName": "Dr. Judy Jones",
+      "filledDate": "14-05-2021",
+      "pharmacyAddress": "CVS Health, \nOne CVS Drive, Woonsocket, \nRhode Island 02895, \nUnited States"
+    }
+  ]
+}

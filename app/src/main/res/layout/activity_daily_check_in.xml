@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.daily_check_in.DailyCheckInActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="dailyCheckInViewModel"
+            type="com.carelon.whe.ui.daily_check_in.DailyCheckInViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/img_check_in"
+            android:layout_width="0dp"
+            android:layout_height="175dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/daily_check_in_night_bg"/>
+
+        <TextView
+            android:id="@+id/txt_title"
+            style="@style/headline_h2_semiBold_primary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_padding_start"
+            android:layout_marginTop="@dimen/m40"
+            android:layout_marginEnd="@dimen/common_padding_end"
+            android:gravity="center"
+            android:text="@string/str_daily_check_in_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_check_in" />
+
+        <TextView
+            android:id="@+id/txt_description"
+            style="@style/body_medium_secondaryLight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_padding_start"
+            android:layout_marginTop="@dimen/m10"
+            android:layout_marginEnd="@dimen/common_padding_end"
+            android:gravity="center"
+            android:lineHeight="@dimen/m24"
+            android:text="@string/str_daily_check_in_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_title" />
+
+        <View
+            android:id="@+id/view_bg_hour"
+            android:layout_width="@dimen/m50"
+            android:layout_height="@dimen/m38"
+            android:background="@drawable/drawable_text_wheel_highlight_bg"
+            app:layout_constraintBottom_toBottomOf="@id/picker_hour"
+            app:layout_constraintEnd_toEndOf="@id/picker_hour"
+            app:layout_constraintStart_toStartOf="@id/picker_hour"
+            app:layout_constraintTop_toTopOf="@id/picker_hour" />
+
+        <com.carelon.whe.widget.wheel_picker.BaseWheelPickerView
+            android:id="@+id/picker_hour"
+            android:layout_width="@dimen/m50"
+            android:layout_height="@dimen/m250"
+            android:layout_marginEnd="@dimen/m20"
+            app:layout_constraintBottom_toTopOf="@+id/btn_choose_time"
+            app:layout_constraintEnd_toStartOf="@id/picker_minutes"
+            app:layout_constraintTop_toBottomOf="@+id/txt_description" />
+
+        <View
+            android:id="@+id/view_bg_minutes"
+            android:layout_width="@dimen/m50"
+            android:layout_height="@dimen/m38"
+            android:background="@drawable/drawable_text_wheel_highlight_bg"
+            app:layout_constraintBottom_toBottomOf="@id/picker_minutes"
+            app:layout_constraintEnd_toEndOf="@id/picker_minutes"
+            app:layout_constraintStart_toStartOf="@id/picker_minutes"
+            app:layout_constraintTop_toTopOf="@id/picker_minutes" />
+
+        <TextView
+            android:id="@+id/txt_colon"
+            style="@style/time_picker_enabled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_colon"
+            app:layout_constraintBottom_toTopOf="@+id/btn_choose_time"
+            app:layout_constraintEnd_toStartOf="@+id/picker_minutes"
+            app:layout_constraintStart_toEndOf="@+id/picker_hour"
+            app:layout_constraintTop_toBottomOf="@+id/txt_description" />
+
+        <com.carelon.whe.widget.wheel_picker.BaseWheelPickerView
+            android:id="@+id/picker_minutes"
+            android:layout_width="@dimen/m50"
+            android:layout_height="@dimen/m250"
+            android:layout_marginStart="@dimen/m10"
+            android:layout_marginEnd="@dimen/m20"
+            app:layout_constraintBottom_toTopOf="@+id/btn_choose_time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_description" />
+
+        <View
+            android:id="@+id/view_stroke_hour"
+            android:layout_width="@dimen/m154"
+            android:layout_height="@dimen/m58"
+            android:background="@drawable/drawable_time_picker_bg"
+            app:layout_constraintBottom_toBottomOf="@id/picker_minutes"
+            app:layout_constraintEnd_toEndOf="@id/picker_minutes"
+            app:layout_constraintStart_toStartOf="@+id/picker_hour"
+            app:layout_constraintTop_toTopOf="@id/picker_minutes" />
+
+        <View
+            android:id="@+id/view_bg_format"
+            android:layout_width="@dimen/m58"
+            android:layout_height="@dimen/m38"
+            android:background="@drawable/drawable_text_wheel_highlight_bg"
+            app:layout_constraintBottom_toBottomOf="@id/picker_format"
+            app:layout_constraintEnd_toEndOf="@id/picker_format"
+            app:layout_constraintStart_toStartOf="@id/picker_format"
+            app:layout_constraintTop_toTopOf="@id/picker_format" />
+
+        <com.carelon.whe.widget.wheel_picker.BaseWheelPickerView
+            android:id="@+id/picker_format"
+            android:layout_width="@dimen/m58"
+            android:layout_height="@dimen/m250"
+            android:layout_marginStart="@dimen/m40"
+            app:layout_constraintBottom_toTopOf="@+id/btn_choose_time"
+            app:layout_constraintStart_toEndOf="@id/picker_minutes"
+            app:layout_constraintTop_toBottomOf="@+id/txt_description" />
+
+        <View
+            android:id="@+id/view_stroke_format"
+            android:layout_width="@dimen/m78"
+            android:layout_height="@dimen/m58"
+            android:background="@drawable/drawable_time_picker_bg"
+            app:layout_constraintBottom_toBottomOf="@id/picker_format"
+            app:layout_constraintEnd_toEndOf="@id/picker_format"
+            app:layout_constraintStart_toStartOf="@+id/picker_format"
+            app:layout_constraintTop_toTopOf="@id/picker_format" />
+
+        <Button
+            android:id="@+id/btn_choose_time"
+            style="@style/button_medium_purple"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_padding_start"
+            android:layout_marginEnd="@dimen/common_padding_end"
+            android:layout_marginBottom="@dimen/m20"
+            android:minHeight="@dimen/m44"
+            android:text="@{dailyCheckInViewModel.buttonText}"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/txt_do_later"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/button_choose_check_in_time" />
+
+        <TextView
+            android:id="@+id/txt_do_later"
+            style="@style/body_17_semiBold_purple"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_padding_start"
+            android:layout_marginEnd="@dimen/common_padding_end"
+            android:layout_marginBottom="@dimen/m50"
+            android:gravity="center"
+            android:padding="@dimen/m10"
+            android:text="@string/str_will_do_later"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

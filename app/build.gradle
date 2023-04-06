@@ -1,0 +1,157 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.dagger.hilt.android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id("com.apollographql.apollo3").version("3.7.3")
+}
+
+apply from: '../dependencies.gradle'
+
+android {
+    namespace appId.packageName
+    compileSdk versions.whxCompileSDK
+
+    defaultConfig {
+        applicationId appId.packageName
+        minSdk versions.whxMinSDK
+        targetSdk versions.whxTargetSDK
+        versionCode versions.versionCode
+        versionName versions.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        // Turns off checks for the issue IDs you specify.
+        disable("TypographyFractions")
+        disable("TypographyQuotes")
+        // Turns on checks for the issue IDs you specify. These checks are in
+        // addition to the default lint checks.
+        enable("RtlHardcoded")
+        enable("RtlCompat")
+        enable("RtlEnabled")
+        // To enable checks for only a subset of issue IDs and ignore all others,
+        // list the issue IDs with the 'check' property instead. This property overrides
+        // any issue IDs you enable or disable using the properties above.
+        checkOnly("NewApi", "InlinedApi")
+        // If set to true, turns off analysis progress reporting by lint.
+        quiet = true
+        // If set to true (default), stops the build if errors are found.
+        abortOnError = false
+        // If true, only report errors.
+        ignoreWarnings = true
+        xmlReport = false
+        htmlReport = false
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+
+    flavorDimensions += "type"
+
+    productFlavors {
+        create("development") {
+            dimension = "type"
+            applicationIdSuffix ".dev"
+            buildConfigField "String", "PREFERENCE_FILE_NAME", "\"WHX_DEV\""
+            buildConfigField "String", "BASE_URL", "\"http://10.0.2.2:8080/api/gateway/graphql/ \""
+        }
+        create("uat") {
+            dimension = "type"
+            applicationIdSuffix ".uat"
+            buildConfigField "String", "PREFERENCE_FILE_NAME", "\"WHX_UAT\""
+            buildConfigField "String", "BASE_URL", "\"http://10.0.2.2:8080/api/gateway/graphql/ \""
+        }
+        create("production") {
+            dimension = "type"
+            applicationIdSuffix ""
+            buildConfigField "String", "PREFERENCE_FILE_NAME", "\"WHX_PROD\""
+            buildConfigField "String", "BASE_URL", "\"http://10.0.2.2:8080/api/gateway/graphql/ \""
+        }
+    }
+}
+
+dependencies {
+    implementation(
+            deps.androidDeps.kotlin,
+            deps.androidDeps.appcompat,
+            deps.androidDeps.material,
+            deps.androidDeps.constraintlayout,
+            deps.androidDeps.navigationFragment,
+            deps.androidDeps.liveData,
+            deps.androidDeps.sharedPreferences,
+            deps.androidDeps.navigationUI,
+            deps.androidDeps.swipeToRefresh,
+            deps.androidDeps.flexbox,
+
+            // Dependency Injection
+            deps.di.hilt,
+
+            // GraphQL
+            deps.graphQL.appolloClient,
+            deps.graphQL.okHttpClient,
+            deps.graphQL.okHttpClientLoggingInterceptor,
+            deps.graphQL.gson,
+
+            // Glide
+            deps.glide.glide,
+
+            // Leak Canary
+            deps.leakCanary.leakCanary,
+
+            deps.testing.junit,
+
+            // Room
+            deps.room.room,
+            deps.room.roomKtx,
+
+            // Google
+            deps.google.fitness,
+            deps.google.auth
+    )
+    implementation 'androidx.test.ext:junit-ktx:1.1.5'
+
+    kapt(
+            deps.di.hiltCompiler,
+            deps.glide.glideCompiler,
+            deps.room.roomCompiler
+    )
+
+    testImplementation(
+            deps.testing.androidJunit,
+            deps.testing.mockito
+    )
+}
+
+//Configure the Apollo plugin to specify the package in which the Kotlin files will be generated.
+apollo {
+    service("service") {
+        packageName.set(appId.packageName)
+    }
+}

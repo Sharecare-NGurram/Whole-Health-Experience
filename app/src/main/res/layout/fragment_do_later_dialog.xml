@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.daily_check_in.dialog.DoLaterDialogFragment">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="doLaterDialogViewModel"
+            type="com.carelon.whe.ui.daily_check_in.dialog.DoLaterDialogViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m20"
+            android:layout_marginEnd="@dimen/m20"
+            android:background="@drawable/dialog_fragment_bg"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/m30">
+
+            <ImageView
+                android:layout_width="@dimen/m66"
+                android:layout_height="@dimen/m66"
+                android:src="@drawable/ic_welcome_stars" />
+
+            <TextView
+                android:id="@+id/txt_earning_bonus"
+                style="@style/headline_h3_semiBold_primary.dark_gray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m23"
+                android:gravity="center"
+                android:lineHeight="@dimen/m30"
+                android:text="@string/str_close_to_earning_bonus" />
+
+            <TextView
+                android:id="@+id/txt_description"
+                style="@style/body_medium_primary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m10"
+                android:gravity="center"
+                android:lineHeight="@dimen/m24"
+                android:text="@string/str_one_step_away_from_bonus" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m20"
+                android:background="@drawable/drawable_pale_purple_bg"
+                android:orientation="vertical"
+                android:padding="@dimen/m20">
+
+                <TextView
+                    android:id="@+id/txt_pick_check_in_time"
+                    style="@style/headline_h4_semiBold_primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/str_pick_check_in_time" />
+
+                <TextView
+                    android:id="@+id/txt_part_reward"
+                    style="@style/body_17_medium_purple"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/m4"
+                    android:drawableStart="@drawable/ic_star_gray"
+                    android:drawablePadding="@dimen/m12"
+                    android:drawableTint="@color/purple_medium"
+                    android:text="@string/str_part_of_reward" />
+
+                <Button
+                    android:id="@+id/btn_pick_and_earn"
+                    style="@style/button_medium_purple"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/m20"
+                    android:minHeight="@dimen/m44"
+                    android:text="@string/button_pick_and_earn"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txt_skip"
+                style="@style/body_17_semiBold_purple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m24"
+                android:gravity="center"
+                android:padding="@dimen/m10"
+                android:text="@string/str_skip_bonus_for_now" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

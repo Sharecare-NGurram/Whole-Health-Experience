@@ -1,0 +1,8 @@
+query UserNeedsToConsent {
+    needConsent {
+        contentId
+        languageCode
+        type
+        content
+    }
+}

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="vm"
+            type="com.carelon.whe.ui.signup_option.SignUpOptionViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.signup_option.SignupOptionActivity">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/splash_bg"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="@dimen/m60"
+            android:paddingEnd="@dimen/m60">
+
+            <ImageView
+                android:id="@+id/img_logo"
+                android:layout_width="@dimen/singup_logo_size"
+                android:layout_height="@dimen/singup_logo_size"
+                android:layout_marginBottom="@dimen/m90"
+                android:src="@drawable/logo_carelon"
+                app:layout_constraintBottom_toTopOf="@+id/guideline1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_header_first"
+                style="@style/headline_h1_semiBold_secondary"
+                android:layout_width="0dp"
+                android:text="@string/str_splash_header_first"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/guideline1" />
+
+            <TextView
+                android:id="@+id/txt_header_second"
+                style="@style/headline_h1_bold_secondary"
+                android:layout_width="0dp"
+                android:text="@string/str_splash_header_second"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_header_first" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btn_anthem_singin"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_normal_height"
+                android:layout_marginTop="@dimen/m40"
+                android:background="@drawable/button_blue_rounded"
+                android:gravity="center_vertical|center_horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_header_second">
+
+                <TextView
+                    android:id="@+id/text_sign_in"
+                    style="@style/body_medium_semiBold_secondary"
+                    android:text="@string/str_sigin_in_with_anthem"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline4"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/img_anthem_logo"
+                    android:layout_width="@dimen/m60"
+                    android:layout_height="@dimen/m14"
+                    android:layout_marginStart="@dimen/m2"
+                    android:layout_marginBottom="@dimen/m1"
+                    android:src="@drawable/ic_anthem_logo"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/guideline4"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".53" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

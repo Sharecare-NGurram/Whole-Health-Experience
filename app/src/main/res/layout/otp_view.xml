@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edt_otp1"
+        style="@style/input_otp"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edt_otp2"
+        style="@style/input_otp" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edt_otp3"
+        style="@style/input_otp"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edt_otp4"
+        style="@style/input_otp"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edt_otp5"
+        style="@style/input_otp"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edt_otp6"
+        style="@style/input_otp"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

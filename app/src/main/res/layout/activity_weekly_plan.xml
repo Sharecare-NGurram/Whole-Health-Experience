@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.week_plan.WeeklyPlanActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="weeklyPlanViewModel"
+            type="com.carelon.whe.ui.week_plan.WeeklyPlanViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:paddingBottom="@dimen/m30">
+
+                <TextView
+                    android:id="@+id/txt_title"
+                    style="@style/headline_h2_semiBold_primary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/common_padding_start"
+                    android:layout_marginTop="@dimen/m70"
+                    android:layout_marginEnd="@dimen/common_padding_end"
+                    android:text="@string/str_your_weekly_plan"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_description"
+                    style="@style/body_medium_secondaryLight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/common_padding_start"
+                    android:layout_marginTop="@dimen/m10"
+                    android:layout_marginEnd="@dimen/common_padding_end"
+                    android:lineHeight="@dimen/m24"
+                    android:lineSpacingExtra="@dimen/later_spacing_large"
+                    android:text="@string/str_your_weekly_plan_desc"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_title" />
+
+                <TextView
+                    android:id="@+id/txt_steps"
+                    style="@style/headline_h4_semiBold_primary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/common_padding_start"
+                    android:layout_marginTop="@dimen/m50"
+                    android:text="@string/str_track_your_steps"
+                    app:layout_constraintEnd_toStartOf="@+id/check_steps"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_description" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/check_steps"
+                    android:layout_width="@dimen/m20"
+                    android:layout_height="@dimen/m20"
+                    android:layout_marginStart="@dimen/m8"
+                    android:layout_marginEnd="@dimen/common_padding_end"
+                    android:button="@drawable/drawable_checkbox_green_rounded"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_steps"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt_steps"
+                    app:layout_constraintTop_toTopOf="@+id/txt_steps" />
+
+                <TextView
+                    android:id="@+id/txt_steps_desc"
+                    style="@style/body_medium_secondaryLight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/common_padding_start"
+                    android:layout_marginTop="@dimen/m5"
+                    android:layout_marginEnd="@dimen/common_padding_end"
+                    android:lineHeight="@dimen/m24"
+                    android:lineSpacingExtra="@dimen/later_spacing_large"
+                    android:text="@string/str_track_your_steps_desc"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_steps" />
+
+
+                <TextView
+                    android:id="@+id/txt_automatically_tracked"
+                    style="@style/body_17_medium_cyan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/common_padding_start"
+                    android:layout_marginTop="@dimen/m10"
+                    android:drawableStart="@drawable/ic_automatically_tracked"
+                    android:drawablePadding="@dimen/m12"
+                    android:text="@string/str_automatically_tracked"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_steps_desc" />
+
+                <TextView
+                    android:id="@+id/txt_health_settings"
+                    style="@style/body_medium_semiBold_purple"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/common_padding_start"
+                    android:layout_marginTop="@dimen/m5"
+                    android:background="@drawable/button_purple_light_rounded"
+                    android:drawableEnd="@drawable/ic_go_to_settings"
+                    android:drawablePadding="@dimen/m12"
+                    android:lineSpacingExtra="@dimen/line_spacing_7"
+                    android:paddingStart="@dimen/m10"
+                    android:paddingTop="@dimen/m10"
+                    android:paddingEnd="@dimen/m15"
+                    android:paddingBottom="@dimen/m10"
+                    android:text="@string/str_go_to_health_settings"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_steps_desc" />
+
+                <Button
+                    android:id="@+id/btn_connect_app"
+                    style="@style/button_medium_purple"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/common_padding_start"
+                    android:layout_marginTop="@dimen/m5"
+                    android:minHeight="@dimen/m34"
+                    android:text="@string/str_connect_health_app"
+                    android:textAlignment="center"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_steps_desc" />
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/barrier_steps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="txt_automatically_tracked,txt_health_settings,btn_connect_app" />
+
+                <View
+                    android:id="@+id/view_steps"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/m10"
+                    android:layout_marginTop="@dimen/m20"
+                    android:background="@color/pale_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/barrier_steps" />
+
+                <TextView
+                    android:id="@+id/txt_meds"
+                    style="@style/headline_h4_semiBold_primary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/common_padding_start"
+                    android:layout_marginTop="@dimen/m20"
+                    android:text="@string/str_track_your_meds"
+                    app:layout_constraintEnd_toStartOf="@+id/check_meds"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view_steps" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/check_meds"
+                    android:layout_width="@dimen/m20"
+                    android:layout_height="@dimen/m20"
+                    android:layout_marginStart="@dimen/m8"
+                    android:layout_marginEnd="@dimen/common_padding_end"
+                    android:button="@drawable/drawable_checkbox_green_rounded"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_meds"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt_meds"
+                    app:layout_constraintTop_toTopOf="@+id/txt_meds" />
+
+                <TextView
+                    android:id="@+id/txt_meds_desc"
+                    style="@style/body_medium_secondaryLight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/common_padding_start"
+                    android:layout_marginTop="@dimen/m5"
+                    android:layout_marginEnd="@dimen/common_padding_end"
+                    android:lineHeight="@dimen/m24"
+                    android:lineSpacingExtra="@dimen/later_spacing_large"
+                    android:text="@string/str_track_your_meds_desc"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_meds" />
+
+                <TextView
+                    android:id="@+id/txt_manually_tracked"
+                    style="@style/body_17_medium_dark_purple"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/common_padding_start"
+                    android:layout_marginTop="@dimen/m10"
+                    android:drawableStart="@drawable/ic_manually_tracked"
+                    android:drawablePadding="@dimen/m12"
+                    android:text="@string/str_manually_tracked"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_meds_desc" />
+
+                <TextView
+                    android:id="@+id/txt_add_medications"
+                    style="@style/body_medium_semiBold_purple"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/common_padding_start"
+                    android:layout_marginTop="@dimen/m5"
+                    android:background="@drawable/button_purple_light_rounded"
+                    android:lineSpacingExtra="@dimen/line_spacing_7"
+                    android:padding="@dimen/m10"
+                    android:text="@string/add_medications"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_meds_desc" />
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/barrier_meds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="txt_manually_tracked,txt_add_medications" />
+
+                <View
+                    android:id="@+id/view_meds"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/m10"
+                    android:layout_marginTop="@dimen/m20"
+                    android:background="@color/pale_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/barrier_meds" />
+
+                <TextView
+                    android:id="@+id/txt_check_in"
+                    style="@style/headline_h4_semiBold_primary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/common_padding_start"
+                    android:layout_marginTop="@dimen/m20"
+                    android:layout_marginEnd="@dimen/common_padding_end"
+                    android:text="@string/str_daily_check_in"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view_meds" />
+
+
+                <TextView
+                    android:id="@+id/txt_check_in_desc"
+                    style="@style/body_medium_secondaryLight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/common_padding_start"
+                    android:layout_marginTop="@dimen/m5"
+                    android:layout_marginEnd="@dimen/common_padding_end"
+                    android:lineHeight="@dimen/m24"
+                    android:lineSpacingExtra="@dimen/later_spacing_large"
+                    tools:text="@string/str_daily_check_in_desc"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_check_in" />
+
+                <TextView
+                    android:id="@+id/txt_check_in_time"
+                    style="@style/body_medium_semiBold_purple"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/common_padding_start"
+                    android:layout_marginTop="@dimen/m5"
+                    android:background="@drawable/button_purple_light_rounded"
+                    android:lineSpacingExtra="@dimen/line_spacing_7"
+                    android:padding="@dimen/m10"
+                    tools:text="@string/str_change_check_in_time"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_check_in_desc" />
+
+                <TextView
+                    android:id="@+id/txt_earn_each_day"
+                    style="@style/body_medium_primary"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/m68"
+                    android:layout_marginStart="@dimen/common_padding_start"
+                    android:layout_marginTop="@dimen/m50"
+                    android:layout_marginEnd="@dimen/common_padding_end"
+                    android:background="@drawable/bonus_reward_bg"
+                    android:drawableStart="@drawable/ic_star"
+                    android:drawablePadding="@dimen/m20"
+                    android:lineSpacingExtra="@dimen/later_spacing_large"
+                    android:paddingStart="@dimen/m23"
+                    android:paddingEnd="@dimen/m23"
+                    android:text="@string/str_earn_each_day"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_check_in_time" />
+
+                <Button
+                    android:id="@+id/btn_get_started"
+                    style="@style/button_medium_purple"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/common_padding_start"
+                    android:layout_marginTop="@dimen/m20"
+                    android:layout_marginEnd="@dimen/common_padding_end"
+                    android:minHeight="@dimen/m44"
+                    android:text="@string/str_get_started"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_earn_each_day" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>

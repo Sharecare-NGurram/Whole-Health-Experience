@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+    <color name="black">#FF000000</color>
+    <color name="light_gray">#ACACAC</color>
+    <color name="dark_gray">#231E33</color>
+    <color name="dark_gray_4">#0A231E33</color>
+    <color name="medium_gray">#6E6B79</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_4">#0AFFFFFF</color>
+    <color name="white_75">#BFFFFFFF</color>
+    <color name="purple">#794CFF</color>
+    <color name="purple_25">#40794CFF</color>
+    <color name="purple_medium">#5009B5</color>
+    <color name="semi_alpha_black">#1A231E33</color>
+
+    <!-- Text Colors -->
+    <color name="text_colorPrimary">@color/dark_gray</color>
+    <color name="text_colorSecondary">@color/white</color>
+    <color name="text_colorSecondaryLight">@color/medium_gray</color>
+    <color name="text_colorGreen">@color/green</color>
+    <color name="text_colorRed">#C44F53</color>
+
+    <!-- Button Colors -->
+    <color name="button_blue">#0079C2</color>
+    <color name="button_blue_ripple_color">#4FA1D3</color>
+    <color name="button_orange">#ED6C44</color>
+    <color name="button_purple">@color/purple</color>
+    <color name="button_purple_light">#0F794CFF</color>
+    <color name="bottom_navbar_bg">@color/dark_gray</color>
+    <color name="button_text_purple">@color/purple</color>
+    <color name="button_light_white">#1AFFFFFF</color>
+    <color name="button_disabled_white">#4DFFFFFF</color>
+    <color name="button_disabled_gray">#19FFFFFF</color>
+
+    <!-- Weekday Calendar Colors -->
+    <color name="transparent">@android:color/transparent</color>
+    <color name="date_progress_gray">#83CACACA</color>
+    <color name="date_progress_indicator">#2B1B49</color>
+    <color name="date_progress_indicator_selected">@color/purple</color>
+    <color name="text_date_selected">@color/purple_medium</color>
+    <color name="text_date_unselected">@color/text_colorSecondaryLight</color>
+    <color name="text_date_progress_enabled">@color/text_colorPrimary</color>
+
+    <!-- BottomNav Tabs -->
+    <color name="text_colorTab">#EBE4FF</color>
+    <color name="text_colorTabSelected">@color/white</color>
+
+    <!-- Add Medications Colors -->
+    <color name="pale_gray">#F9FAFB</color>
+    <color name="medication_unselected_border">#EBE4FF</color>
+    <color name="medication_selected_bg">#EBE4FF</color>
+    <color name="medication_selected">@color/purple_medium</color>
+
+    <color name="progress_color">#A3A2AB</color>
+    <color name="toast_success_bg">#4AA564</color>
+    <color name="toast_error_bg">#E54D4D</color>
+
+    <color name="purple_ripple">#A688FF</color>
+    <color name="mid_gray">#A3A2AB</color>
+    <color name="red_terra_cotta">#C44F53</color>
+    <color name="alpha_black">#231E330A</color>
+
+    <color name="text_wheel_text_color">@color/purple_medium</color>
+    <color name="text_wheel_disable_text_color">#A3A2AB</color>
+    <color name="text_wheel_highlight_bg_color">#EBE4FF</color>
+
+    <!-- Medication Page -->
+    <color name="reminder_bg">#0F794CFF</color>
+    <color name="light_purple">#F7F4FF</color>
+
+    <color name="light_gray_add_medication">#D7D7DB</color>
+    <color name="mid_gray_add_medication">#D7D7DB</color>
+    <color name="blue">#007AFF</color>
+
+    <color name="red">#d32f2f</color>
+    <color name="grey">#a9a9a9</color>
+    <color name="green">#028283</color>
+    <color name="dark_purple">#2B1B49</color>
+    <color name="cyan">#0C7DB6</color>
+
+</resources>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.carelon.whe.ui.login.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fitsSystemWindows="true"
+        android:paddingTop="@dimen/status_bar_padding"
+        tools:context=".ui.login.LoginActivity">
+
+        <ImageView
+            android:id="@+id/img_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/m15"
+            android:layout_marginVertical="@dimen/m10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
+            app:tint="@color/black" />
+
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_close"
+            app:loadUrl="@{vm.webViewLoginUrl}" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/status_bar_padding"
+            android:visibility="gone"
+            tools:context=".ui.login.LoginActivity">
+
+            <TextView
+                android:id="@+id/txt_header"
+                style="@style/headline_h3_medium_secondaryLight"
+                android:layout_marginHorizontal="@dimen/m15"
+                android:layout_marginTop="@dimen/m55"
+                android:text="@string/str_login_to_member_account"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_close" />
+
+            <TextView
+                android:id="@+id/txt_new_user"
+                style="@style/body_medium_semiBold_secondaryLight"
+                android:layout_marginTop="@dimen/m15"
+                android:text="Not signed up? Register Now"
+                app:layout_constraintEnd_toEndOf="@+id/txt_header"
+                app:layout_constraintStart_toStartOf="@+id/txt_header"
+                app:layout_constraintTop_toBottomOf="@+id/txt_header" />
+
+            <TextView
+                android:id="@+id/txt_emailHeader"
+                style="@style/login_edittext_header_primary"
+                android:layout_marginHorizontal="@dimen/m15"
+                android:layout_marginStart="@dimen/m15"
+                android:layout_marginTop="@dimen/m50"
+                android:text="@string/str_enter_email_username"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_new_user" />
+
+            <EditText
+                android:id="@+id/edit_email"
+                style="@style/login_edittext"
+                android:layout_marginHorizontal="@dimen/m15"
+                android:layout_marginTop="@dimen/m10"
+                android:inputType="textEmailAddress"
+                android:text="@{vm.savedCredentials.Companion.USERNAME}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.551"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_emailHeader" />
+
+            <TextView
+                android:id="@+id/txt_passwordHeader"
+                style="@style/login_edittext_header_primary"
+                android:layout_marginTop="@dimen/m20"
+                android:text="@string/str_password"
+                app:layout_constraintStart_toStartOf="@+id/edit_email"
+                app:layout_constraintTop_toBottomOf="@+id/edit_email" />
+
+            <EditText
+                android:id="@+id/edit_Password"
+                style="@style/login_edittext"
+                android:layout_marginTop="@dimen/m10"
+                android:inputType="textPassword"
+                android:text="@{vm.savedCredentials.Companion.PASSWORD}"
+                app:layout_constraintEnd_toEndOf="@+id/edit_email"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/edit_email"
+                app:layout_constraintTop_toBottomOf="@+id/txt_passwordHeader" />
+
+            <TextView
+                android:id="@+id/txt_forget_user"
+                style="@style/body_medium_link"
+                android:layout_marginTop="@dimen/m25"
+                android:text="Forget Username or Password?"
+                app:layout_constraintEnd_toEndOf="@+id/edit_Password"
+                app:layout_constraintStart_toStartOf="@+id/edit_Password"
+                app:layout_constraintTop_toBottomOf="@+id/edit_Password" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_login"
+                style="@style/button_small_orange"
+                android:layout_marginTop="@dimen/m40"
+                android:text="@string/str_login"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_forget_user" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

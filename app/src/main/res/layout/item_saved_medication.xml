@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="medicineDataModel"
+            type="com.carelon.whe.domain.model.Medicine" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/m10"
+        android:background="@drawable/drawable_saved_meds_bg"
+        android:paddingStart="@dimen/m20"
+        android:paddingTop="@dimen/m12"
+        android:paddingBottom="@dimen/m12">
+
+        <TextView
+            android:id="@+id/text_medication_name"
+            style="@style/headline_h5_semiBold_primary"
+            android:layout_width="0dp"
+            android:layout_marginEnd="@dimen/m17"
+            android:lineSpacingExtra="@dimen/later_spacing_extra_small"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:text="@{medicineDataModel.name}"
+            app:layout_constraintEnd_toStartOf="@+id/img_right"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Diovan HTC" />
+
+        <TextView
+            android:id="@+id/text_medication_desc"
+            style="@style/body_medium_secondaryLight"
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/m5"
+            android:layout_marginEnd="@dimen/m17"
+            android:lineSpacingExtra="@dimen/later_spacing_large"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:medicineType="@{medicineDataModel}"
+            app:layout_constraintEnd_toStartOf="@+id/img_right"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_medication_name"
+            tools:text="160mg oral tablet" />
+
+        <ImageView
+            android:id="@+id/img_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/m27"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

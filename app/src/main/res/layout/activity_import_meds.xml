@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.import_meds.ImportMedsActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="importMedsViewModel"
+            type="com.carelon.whe.ui.import_meds.ImportMedsViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/common_padding_start"
+        android:paddingTop="@dimen/m20"
+        android:paddingEnd="@dimen/common_padding_end"
+        android:background="@color/pale_gray"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
+
+            <ImageView
+                android:id="@+id/img_close"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/m48"
+                android:paddingTop="@dimen/m16"
+                android:paddingEnd="@dimen/m16"
+                android:paddingBottom="@dimen/m16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_close_top_bar"
+                app:tint="@color/black" />
+
+            <TextView
+                android:id="@+id/txt_title"
+                style="@style/headline_h5_medium_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/add_medications"
+                app:layout_constraintBottom_toBottomOf="@id/img_close"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/img_close" />
+
+            <ImageView
+                android:layout_width="@dimen/m42"
+                android:layout_height="@dimen/m54"
+                android:layout_marginBottom="@dimen/m30"
+                android:src="@drawable/ic_import_meds"
+                app:layout_constraintBottom_toTopOf="@+id/txt_import_your_meds"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_import_your_meds"
+                style="@style/headline_h3_semiBold_primary.dark_gray"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/m10"
+                android:gravity="center"
+                android:lineHeight="@dimen/m30"
+                android:text="@string/str_import_meds"
+                app:layout_constraintBottom_toTopOf="@+id/txt_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_description"
+                style="@style/body_medium_primary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m10"
+                android:layout_marginEnd="@dimen/m10"
+                android:gravity="center"
+                android:lineHeight="@dimen/m24"
+                android:text="@string/str_import_meds_desc"
+                app:layout_constraintBottom_toBottomOf="@id/btn_import_meds"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txt_title" />
+
+            <TextView
+                android:id="@+id/txt_importing"
+                style="@style/body_semiBold_primary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m10"
+                android:layout_marginTop="@dimen/m30"
+                android:layout_marginEnd="@dimen/m10"
+                android:gravity="center"
+                android:lineHeight="@dimen/m24"
+                android:text="@string/str_by_importing_you_can"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_description" />
+
+            <TextView
+                android:id="@+id/txt_daily_reminders"
+                style="@style/body_medium_primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m10"
+                android:layout_marginTop="@dimen/m10"
+                android:layout_marginEnd="@dimen/m10"
+                android:drawableStart="@drawable/ic_tick"
+                android:drawablePadding="@dimen/m10"
+                android:gravity="center"
+                android:lineHeight="@dimen/m24"
+                android:text="@string/str_set_daily_reminders"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_importing" />
+
+            <TextView
+                android:id="@+id/txt_prescription_details"
+                style="@style/body_medium_primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m10"
+                android:layout_marginTop="@dimen/m10"
+                android:layout_marginEnd="@dimen/m10"
+                android:drawableStart="@drawable/ic_tick"
+                android:drawablePadding="@dimen/m10"
+                android:gravity="center"
+                android:lineHeight="@dimen/m24"
+                android:text="@string/str_see_prescription_details"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_daily_reminders" />
+
+            <TextView
+                android:id="@+id/txt_add_notes"
+                style="@style/body_medium_primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m10"
+                android:layout_marginTop="@dimen/m10"
+                android:layout_marginEnd="@dimen/m10"
+                android:drawableStart="@drawable/ic_tick"
+                android:drawablePadding="@dimen/m10"
+                android:gravity="center"
+                android:lineHeight="@dimen/m24"
+                android:text="@string/str_add_notes"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_prescription_details" />
+
+            <Button
+                android:id="@+id/btn_import_meds"
+                style="@style/button_medium_purple"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m20"
+                android:layout_marginBottom="@dimen/m30"
+                android:minHeight="@dimen/m44"
+                android:text="@string/button_import_meds"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toTopOf="@+id/txt_not_right_now"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_not_right_now"
+                style="@style/body_17_semiBold_purple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/m30"
+                android:gravity="center"
+                android:text="@string/str_not_right_now"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+
+
+
+</layout>

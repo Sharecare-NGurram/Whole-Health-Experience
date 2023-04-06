@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.daily_check_in.dialog.SetUpFirstWeekDialogFragment">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="setUpFirstWeekDialogViewModel"
+            type="com.carelon.whe.ui.daily_check_in.dialog.SetUpFirstWeekDialogViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m20"
+            android:layout_marginEnd="@dimen/m20"
+            android:background="@drawable/dialog_fragment_bg"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/m30">
+
+            <LinearLayout
+                android:id="@+id/rewards_layout"
+                android:layout_width="@dimen/m145"
+                android:layout_height="@dimen/m66"
+                android:background="@drawable/drawable_current_balance"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/m20"
+                android:paddingTop="@dimen/m10"
+                android:paddingEnd="@dimen/m12"
+                android:paddingBottom="@dimen/m10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/txt_earned_reward"
+                    style="@style/headline_h1_semiBold_secondary"
+                    android:text="$10" />
+
+                <ImageView
+                    android:layout_width="@dimen/m40"
+                    android:layout_height="@dimen/m40"
+                    android:layout_marginStart="@dimen/m10"
+                    android:src="@drawable/ic_star_rounded" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txt_rewards_earned"
+                style="@style/headline_h3_semiBold_primary.dark_gray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m20"
+                android:text="@string/str_you_got"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rewards_layout" />
+
+            <TextView
+                android:id="@+id/txt_balance_added"
+                style="@style/headline_h6_medium_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m10"
+                android:gravity="center"
+                android:lineHeight="@dimen/m24"
+                android:text="@string/str_for_completing_first_time_setup"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_rewards_earned" />
+
+            <TextView
+                android:id="@+id/txt_first_time_setup"
+                style="@style/headline_h6_medium_green"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m12"
+                android:layout_marginTop="@dimen/m30"
+                android:layout_marginEnd="@dimen/m12"
+                android:background="@drawable/drawable_semi_alpha_black_bg"
+                android:gravity="center"
+                android:minHeight="@dimen/m44"
+                android:padding="@dimen/m10"
+                android:text="@string/str_first_time_setup"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_balance_added" />
+
+
+            <TextView
+                android:id="@+id/txt_completed"
+                style="@style/body_15_semiBold_green"
+                android:layout_marginTop="@dimen/m20"
+                android:background="@color/white"
+                android:drawableStart="@drawable/ic_import_meds_success"
+                android:drawablePadding="@dimen/m10"
+                android:lineSpacingExtra="@dimen/line_spacing_medium"
+                android:paddingStart="@dimen/m10"
+                android:paddingEnd="@dimen/m10"
+                android:text="@string/str_completed"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_balance_added" />
+
+            <TextView
+                android:id="@+id/txt_description"
+                style="@style/body_medium_secondaryLight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m20"
+                android:gravity="center"
+                android:lineHeight="@dimen/m24"
+                android:text="@string/str_complete_steps_to_earn_reward"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_first_time_setup" />
+
+            <Button
+                android:id="@+id/btn_set_up_first_week"
+                style="@style/button_medium_purple"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m30"
+                android:minHeight="@dimen/m44"
+                android:text="@string/button_set_up_first_week"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_description" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</layout>

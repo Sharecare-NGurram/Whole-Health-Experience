@@ -1,0 +1,1762 @@
+type Query {
+  """
+  GET method for getting Content for an app. Will return Content if user has not already consented.
+  """
+  needConsent(Accept_Language: String = "en"): [ContentV2Response]
+
+  """
+  This is the Anthem login configuration. The login_url should be used to show the Anthem login screens. 
+  The auth_tokens object is has the 'response' that we should be listening for. The url_base is the
+  URL that indicates a login is complete, and the tokens are in the query parameters specified in the
+  query_param attributes.
+  """
+  anthem_auth_config: AnthemAuthConfig
+
+  """
+  Find tracked step activity for the member.
+  """
+  stepActivity("The days for which to find activity" input: FindStepsByDateInput!): FindStepsResponsePayload
+
+  """
+  Member data to provide a 'whole health experience'
+  """
+  wholeHealth: WholeHealthModel
+
+  xpoProfile: ProfileServicesV2DTO
+}
+
+type Mutation {
+  """
+  Send a one-time-pin to the email address the member want to claim as their primary email address.
+  """
+  validateEmail(input: ClaimEmailInput_Input): ClaimEmailPayload
+
+  """
+  Send a one-time-pin to the email address the member want to claim as their primary email address.
+  """
+  updateEmail(input: UpdateEmailInput_Input): JSON
+
+  """
+  Handle Submitting Consents V3.
+  """
+  addConsents(input: ConsentV2RequestWrapper_Input): ConsentWriteResponse
+
+  """
+  Invalidate Tokens: Use this whenever tokens should be invalidated. E.g. during logout
+  """
+  invalidateTokens("The access token that should be invalidated" accessToken: String, "The refresh token that should be invalidated" refreshToken: String): InvalidateTokensPayload
+
+  """
+  Token Refresh: Use this whenever a new access token needs to be generated.
+  """
+  refreshTokens("The refresh token that will be used to generate new tokens" refreshToken: String): RefreshTokenPayload
+
+  """
+  Track member medication imports
+  """
+  addMedicationImport("A list of medications to save" input: [ImportAction!] = [OK]): AddMedicationImportPayload!
+
+  """
+  Add medications to manage
+  """
+  addMedications("A list of medications to save" input: [AddMedicationInput!]!): AddMedicationPayload!
+
+  """
+  Add a medication reminder time
+  """
+  addReminderTime("A list of medications to save" input: AddReminderTimeInput!): AddReminderTimePayload!
+
+  """
+  Remove a managed medication
+  """
+  removeMedication("The input to remove a medication" input: RemoveMedicationInput!): RemoveIndividualResponsePayload!
+
+  """
+  Remove a reminder time
+  """
+  removeReminderTime("The input to remove a reminder time" input: RemoveMedicationInput!): RemoveIndividualResponsePayload!
+
+  """
+  Save member maintained medication details
+  """
+  saveMedicationDetails("The whole object is persisted. Passing empty\/null for any of the fields here will blank them out" input: UpdateMedicationDetailsInput!): SuccessResponsePayload!
+
+  """
+  Start step activity tracking
+  """
+  trackStepActivity: TrackActivityResponsePayload!
+
+  """
+  Update step activity for a member
+  """
+  updateDailyStepActivity("The step activity for a day" input: UpdateStepActivityInput!): StepActivityResponsePayload!
+
+  xpoProfile(input: ProfileServicesV2Input!): ProfileServiceMutationResult!
+}
+
+type UserInfoPayload {
+  """
+  The user's platform identifier
+  """
+  xpoId: String
+
+  """
+  The tenant's SAML SSO CN/Subject
+  """
+  ssoSubject: String
+}
+
+"""
+The values necessary to update an email for a member securely
+"""
+type ClaimEmailPayload {
+  token: String!
+
+  pingRiskId: String!
+
+  pingUserId: String!
+
+  pingDeviceId: String!
+}
+
+"""
+Sends an one-time-pin to the email so that it can be claimed as a way to contact the member
+"""
+input ClaimEmailInput_Input {
+  """
+  Indicates if this is a primary contact email address for the member. Defaults to 'true' when not set.
+  """
+  primaryContact: Boolean
+
+  contactInfo: mutationInput_post_xpocare_v1_user_validateEmail_input_contactInfo_Input!
+}
+
+input mutationInput_post_xpocare_v1_user_validateEmail_input_contactInfo_Input {
+  channel: email_const!
+
+  """
+  The email address to be claimed
+  """
+  value: String!
+}
+
+enum email_const {
+  email
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+input UpdateEmailInput_Input {
+  """
+  This is the one-time-pin sent to the email address
+  """
+  otp: String!
+
+  """
+  This is token from the ClaimEmailPayload
+  """
+  token: String!
+
+  """
+  This is pingRiskId from the ClaimEmailPayload
+  """
+  pingRiskId: String!
+
+  """
+  This is pingUserId from the ClaimEmailPayload
+  """
+  pingUserId: String!
+
+  """
+  This is pingDeviceId from the ClaimEmailPayload
+  """
+  pingDeviceId: String!
+}
+
+scalar ObjMap
+
+enum HTTPMethod {
+  GET
+
+  HEAD
+
+  POST
+
+  PUT
+
+  DELETE
+
+  CONNECT
+
+  OPTIONS
+
+  TRACE
+
+  PATCH
+}
+
+type ContentV2Response {
+  type: query_getContentV2_items_type
+
+  version: Int
+
+  created: DateTime
+
+  content: String
+
+  source: String
+
+  tenantId: String
+
+  languageCode: String
+
+  contentId: String
+}
+
+enum query_getContentV2_items_type {
+  PRIVACY
+
+  TERMS
+
+  CREATE_LHO
+
+  LINK_LHO
+
+  CREATE_SSO_FROM_SYDNEY
+
+  LINK_SSO_FROM_SYDNEY
+
+  LOCATION
+
+  HIPAA
+
+  DATA_SHARING
+
+  LHO_PRIVACY
+
+  MOBILE_TEXT
+
+  MEMBER_CARE_SUPPORT
+
+  CARE_SUPPORT
+
+  EARLY_ACCESS
+}
+
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+
+union getConsentV2_response = AppException|ConsentV2ResponseWrapper
+
+type AppException {
+  uuid: String
+
+  statusCode: String
+
+  statusMessage: String
+
+  timestamp: DateTime
+
+  exceptions: [XpoCareAppError]
+}
+
+type XpoCareAppError {
+  type: String
+
+  code: String
+
+  message: String
+
+  detail: String
+}
+
+type ConsentV2ResponseWrapper {
+  consents: [ConsentV2Response]
+}
+
+type ConsentV2Response {
+  consent: query_getConsentV2_oneOf_0_consents_items_consent
+
+  version: Int
+
+  languageCode: String
+
+  type: query_getConsentV2_oneOf_0_consents_items_type
+
+  created: DateTime
+}
+
+enum query_getConsentV2_oneOf_0_consents_items_consent {
+  YES
+
+  NO
+
+  SKIP
+}
+
+enum query_getConsentV2_oneOf_0_consents_items_type {
+  PRIVACY
+
+  TERMS
+
+  CREATE_LHO
+
+  LINK_LHO
+
+  CREATE_SSO_FROM_SYDNEY
+
+  LINK_SSO_FROM_SYDNEY
+
+  LOCATION
+
+  HIPAA
+
+  DATA_SHARING
+
+  LHO_PRIVACY
+
+  MOBILE_TEXT
+
+  MEMBER_CARE_SUPPORT
+
+  CARE_SUPPORT
+
+  EARLY_ACCESS
+}
+
+union getContent_response = ContentResponse|AppException
+
+type ContentResponse {
+  type: query_getContent_oneOf_0_items_type
+
+  version: Int
+
+  created: DateTime
+
+  content: String
+
+  source: String
+
+  languageCode: String
+
+  id: String
+}
+
+enum query_getContent_oneOf_0_items_type {
+  PRIVACY
+
+  TERMS
+
+  CREATE_LHO
+
+  LINK_LHO
+
+  CREATE_SSO_FROM_SYDNEY
+
+  LINK_SSO_FROM_SYDNEY
+
+  LOCATION
+
+  HIPAA
+
+  DATA_SHARING
+
+  LHO_PRIVACY
+
+  MOBILE_TEXT
+
+  MEMBER_CARE_SUPPORT
+
+  CARE_SUPPORT
+
+  EARLY_ACCESS
+}
+
+enum queryInput_getContent_sources_items {
+  MAYA
+
+  EXPOCARE
+
+  CAREMARKET
+}
+
+union getConsent_response = AppException|ConsentResponseWrapper
+
+type ConsentResponseWrapper {
+  consents: [ConsentResponse]
+}
+
+type ConsentResponse {
+  consent: query_getConsent_oneOf_0_consents_items_consent
+
+  version: Int
+
+  languageCode: String
+
+  type: query_getConsent_oneOf_0_consents_items_type
+
+  created: DateTime
+
+  source: String
+}
+
+enum query_getConsent_oneOf_0_consents_items_consent {
+  YES
+
+  NO
+
+  SKIP
+}
+
+enum query_getConsent_oneOf_0_consents_items_type {
+  PRIVACY
+
+  TERMS
+
+  CREATE_LHO
+
+  LINK_LHO
+
+  CREATE_SSO_FROM_SYDNEY
+
+  LINK_SSO_FROM_SYDNEY
+
+  LOCATION
+
+  HIPAA
+
+  DATA_SHARING
+
+  LHO_PRIVACY
+
+  MOBILE_TEXT
+
+  MEMBER_CARE_SUPPORT
+
+  CARE_SUPPORT
+
+  EARLY_ACCESS
+}
+
+enum queryInput_getConsent_sources_items {
+  MAYA
+
+  EXPOCARE
+
+  CAREMARKET
+}
+
+union getUserConsentStateV2_response = AppException|GetUserConsentStateResponse
+
+type GetUserConsentStateResponse {
+  value: String
+
+  userConsented: Boolean
+
+  content: Content
+
+  consentedDate: String
+
+  errorCode: String
+
+  errorMessage: String
+
+  status: query_getUserConsentStateV2_oneOf_0_status
+}
+
+type Content {
+  id: String
+
+  type: query_getUserConsentStateV2_oneOf_0_content_type
+
+  """
+  Consent Version content
+  """
+  version: Int
+
+  """
+  Created
+  """
+  created: DateTime
+
+  """
+  HTML formatted content
+  """
+  content: String
+
+  """
+  Content Vendor
+  """
+  source: String
+
+  """
+  Language of Content
+  """
+  languageCode: String
+
+  """
+  Content TenantId
+  """
+  tenantId: String
+}
+
+"""
+Consent Type
+"""
+enum query_getUserConsentStateV2_oneOf_0_content_type {
+  PRIVACY
+
+  TERMS
+
+  CREATE_LHO
+
+  LINK_LHO
+
+  CREATE_SSO_FROM_SYDNEY
+
+  LINK_SSO_FROM_SYDNEY
+
+  LOCATION
+
+  HIPAA
+
+  DATA_SHARING
+
+  LHO_PRIVACY
+
+  MOBILE_TEXT
+
+  MEMBER_CARE_SUPPORT
+
+  CARE_SUPPORT
+
+  EARLY_ACCESS
+}
+
+enum query_getUserConsentStateV2_oneOf_0_status {
+  _100_CONTINUE
+
+  _101_SWITCHING_PROTOCOLS
+
+  _102_PROCESSING
+
+  _103_CHECKPOINT
+
+  _200_OK
+
+  _201_CREATED
+
+  _202_ACCEPTED
+
+  _203_NON_AUTHORITATIVE_INFORMATION
+
+  _204_NO_CONTENT
+
+  _205_RESET_CONTENT
+
+  _206_PARTIAL_CONTENT
+
+  _207_MULTI_STATUS
+
+  _208_ALREADY_REPORTED
+
+  _226_IM_USED
+
+  _300_MULTIPLE_CHOICES
+
+  _301_MOVED_PERMANENTLY
+
+  _302_FOUND
+
+  _302_MOVED_TEMPORARILY
+
+  _303_SEE_OTHER
+
+  _304_NOT_MODIFIED
+
+  _305_USE_PROXY
+
+  _307_TEMPORARY_REDIRECT
+
+  _308_PERMANENT_REDIRECT
+
+  _400_BAD_REQUEST
+
+  _401_UNAUTHORIZED
+
+  _402_PAYMENT_REQUIRED
+
+  _403_FORBIDDEN
+
+  _404_NOT_FOUND
+
+  _405_METHOD_NOT_ALLOWED
+
+  _406_NOT_ACCEPTABLE
+
+  _407_PROXY_AUTHENTICATION_REQUIRED
+
+  _408_REQUEST_TIMEOUT
+
+  _409_CONFLICT
+
+  _410_GONE
+
+  _411_LENGTH_REQUIRED
+
+  _412_PRECONDITION_FAILED
+
+  _413_PAYLOAD_TOO_LARGE
+
+  _413_REQUEST_ENTITY_TOO_LARGE
+
+  _414_URI_TOO_LONG
+
+  _414_REQUEST_URI_TOO_LONG
+
+  _415_UNSUPPORTED_MEDIA_TYPE
+
+  _416_REQUESTED_RANGE_NOT_SATISFIABLE
+
+  _417_EXPECTATION_FAILED
+
+  _418_I_AM_A_TEAPOT
+
+  _419_INSUFFICIENT_SPACE_ON_RESOURCE
+
+  _420_METHOD_FAILURE
+
+  _421_DESTINATION_LOCKED
+
+  _422_UNPROCESSABLE_ENTITY
+
+  _423_LOCKED
+
+  _424_FAILED_DEPENDENCY
+
+  _425_TOO_EARLY
+
+  _426_UPGRADE_REQUIRED
+
+  _428_PRECONDITION_REQUIRED
+
+  _429_TOO_MANY_REQUESTS
+
+  _431_REQUEST_HEADER_FIELDS_TOO_LARGE
+
+  _451_UNAVAILABLE_FOR_LEGAL_REASONS
+
+  _500_INTERNAL_SERVER_ERROR
+
+  _501_NOT_IMPLEMENTED
+
+  _502_BAD_GATEWAY
+
+  _503_SERVICE_UNAVAILABLE
+
+  _504_GATEWAY_TIMEOUT
+
+  _505_HTTP_VERSION_NOT_SUPPORTED
+
+  _506_VARIANT_ALSO_NEGOTIATES
+
+  _507_INSUFFICIENT_STORAGE
+
+  _508_LOOP_DETECTED
+
+  _509_BANDWIDTH_LIMIT_EXCEEDED
+
+  _510_NOT_EXTENDED
+
+  _511_NETWORK_AUTHENTICATION_REQUIRED
+}
+
+enum queryInput_getUserConsentStateV2_type {
+  PRIVACY
+
+  TERMS
+
+  CREATE_LHO
+
+  LINK_LHO
+
+  CREATE_SSO_FROM_SYDNEY
+
+  LINK_SSO_FROM_SYDNEY
+
+  LOCATION
+
+  HIPAA
+
+  DATA_SHARING
+
+  LHO_PRIVACY
+
+  MOBILE_TEXT
+
+  MEMBER_CARE_SUPPORT
+
+  CARE_SUPPORT
+
+  EARLY_ACCESS
+}
+
+union getLatestVersionV2_response = AppException|ContentV2Response
+
+enum queryInput_getLatestVersionV2_type {
+  PRIVACY
+
+  TERMS
+
+  CREATE_LHO
+
+  LINK_LHO
+
+  CREATE_SSO_FROM_SYDNEY
+
+  LINK_SSO_FROM_SYDNEY
+
+  LOCATION
+
+  HIPAA
+
+  DATA_SHARING
+
+  LHO_PRIVACY
+
+  MOBILE_TEXT
+
+  MEMBER_CARE_SUPPORT
+
+  CARE_SUPPORT
+
+  EARLY_ACCESS
+}
+
+union getUserConsentState_response = AppException|GetUserConsentStateResponse
+
+enum queryInput_getUserConsentState_source {
+  MAYA
+
+  EXPOCARE
+
+  CAREMARKET
+}
+
+enum queryInput_getUserConsentState_type {
+  PRIVACY
+
+  TERMS
+
+  CREATE_LHO
+
+  LINK_LHO
+
+  CREATE_SSO_FROM_SYDNEY
+
+  LINK_SSO_FROM_SYDNEY
+
+  LOCATION
+
+  HIPAA
+
+  DATA_SHARING
+
+  LHO_PRIVACY
+
+  MOBILE_TEXT
+
+  MEMBER_CARE_SUPPORT
+
+  CARE_SUPPORT
+
+  EARLY_ACCESS
+}
+
+union getLatestVersion_response = AppException|ContentResponse
+
+enum queryInput_getLatestVersion_source {
+  MAYA
+
+  EXPOCARE
+
+  CAREMARKET
+}
+
+enum queryInput_getLatestVersion_type {
+  PRIVACY
+
+  TERMS
+
+  CREATE_LHO
+
+  LINK_LHO
+
+  CREATE_SSO_FROM_SYDNEY
+
+  LINK_SSO_FROM_SYDNEY
+
+  LOCATION
+
+  HIPAA
+
+  DATA_SHARING
+
+  LHO_PRIVACY
+
+  MOBILE_TEXT
+
+  MEMBER_CARE_SUPPORT
+
+  CARE_SUPPORT
+
+  EARLY_ACCESS
+}
+
+union submitContentV2_response = AppException|ContentV2Response
+
+input SubmitContentV2Request_Input {
+  """
+  HTML body of content to be submitted
+  """
+  content: String!
+
+  type: mutationInput_submitContentV2_input_type!
+
+  """
+  Valid ISO language code for the content
+  """
+  languageCode: String!
+}
+
+"""
+Type of content in relation to the consent type
+"""
+enum mutationInput_submitContentV2_input_type {
+  PRIVACY
+
+  TERMS
+
+  CREATE_LHO
+
+  LINK_LHO
+
+  CREATE_SSO_FROM_SYDNEY
+
+  LINK_SSO_FROM_SYDNEY
+
+  LOCATION
+
+  HIPAA
+
+  DATA_SHARING
+
+  LHO_PRIVACY
+
+  MOBILE_TEXT
+
+  MEMBER_CARE_SUPPORT
+
+  CARE_SUPPORT
+
+  EARLY_ACCESS
+}
+
+type ConsentWriteResponse {
+  status: String
+
+  message: String
+}
+
+input ConsentV2RequestWrapper_Input {
+  consents: [ConsentV2Request_Input]
+}
+
+input ConsentV2Request_Input {
+  consent: mutationInput_submitConsentV2_input_consents_items_consent!
+
+  version: Int
+
+  languageCode: String!
+
+  type: mutationInput_submitConsentV2_input_consents_items_type!
+
+  contentId: String!
+
+  clientSpecifics: [ClientSpecifics_Input]
+}
+
+enum mutationInput_submitConsentV2_input_consents_items_consent {
+  YES
+
+  NO
+
+  SKIP
+}
+
+enum mutationInput_submitConsentV2_input_consents_items_type {
+  PRIVACY
+
+  TERMS
+
+  CREATE_LHO
+
+  LINK_LHO
+
+  CREATE_SSO_FROM_SYDNEY
+
+  LINK_SSO_FROM_SYDNEY
+
+  LOCATION
+
+  HIPAA
+
+  DATA_SHARING
+
+  LHO_PRIVACY
+
+  MOBILE_TEXT
+
+  MEMBER_CARE_SUPPORT
+
+  CARE_SUPPORT
+
+  EARLY_ACCESS
+}
+
+"""
+Client Specific
+"""
+input ClientSpecifics_Input {
+  key: String
+
+  value: String
+}
+
+union submitContent_response = AppException|ContentResponse
+
+input SubmitContentRequest_Input {
+  source: mutationInput_submitContent_input_source!
+
+  """
+  HTML body of content to be submitted
+  """
+  content: String!
+
+  type: mutationInput_submitContent_input_type!
+
+  """
+  Valid ISO language code for the content
+  """
+  languageCode: String!
+}
+
+"""
+Source of content to be submitted
+"""
+enum mutationInput_submitContent_input_source {
+  MAYA
+
+  EXPOCARE
+
+  CAREMARKET
+}
+
+"""
+Type of content in relation to the consent type
+"""
+enum mutationInput_submitContent_input_type {
+  PRIVACY
+
+  TERMS
+
+  CREATE_LHO
+
+  LINK_LHO
+
+  CREATE_SSO_FROM_SYDNEY
+
+  LINK_SSO_FROM_SYDNEY
+
+  LOCATION
+
+  HIPAA
+
+  DATA_SHARING
+
+  LHO_PRIVACY
+
+  MOBILE_TEXT
+
+  MEMBER_CARE_SUPPORT
+
+  CARE_SUPPORT
+
+  EARLY_ACCESS
+}
+
+union submitConsent_response = AppException|ConsentWriteResponse
+
+input ConsentRequestWrapper_Input {
+  consents: [ConsentRequest_Input]
+}
+
+input ConsentRequest_Input {
+  consent: mutationInput_submitConsent_input_consents_items_consent!
+
+  version: Int
+
+  languageCode: String
+
+  type: mutationInput_submitConsent_input_consents_items_type!
+
+  source: String!
+
+  contentId: String
+
+  clientSpecifics: [ClientSpecifics_Input]
+}
+
+enum mutationInput_submitConsent_input_consents_items_consent {
+  YES
+
+  NO
+
+  SKIP
+}
+
+enum mutationInput_submitConsent_input_consents_items_type {
+  PRIVACY
+
+  TERMS
+
+  CREATE_LHO
+
+  LINK_LHO
+
+  CREATE_SSO_FROM_SYDNEY
+
+  LINK_SSO_FROM_SYDNEY
+
+  LOCATION
+
+  HIPAA
+
+  DATA_SHARING
+
+  LHO_PRIVACY
+
+  MOBILE_TEXT
+
+  MEMBER_CARE_SUPPORT
+
+  CARE_SUPPORT
+
+  EARLY_ACCESS
+}
+
+type InvalidateTokensPayload {
+  status: String
+}
+
+type RefreshTokenPayload {
+  """
+  The new access token
+  """
+  access_token: String
+
+  """
+  The new refresh token
+  """
+  refresh_token: String
+
+  """
+  The access token expiration in seconds
+  """
+  expires_in: Int
+}
+
+type AnthemAuthConfig {
+  login_url: URL
+
+  auth_tokens: query_anthem_auth_config_auth_tokens
+}
+
+"""
+A field whose value conforms to the standard URL format as specified in RFC3986: https://www.ietf.org/rfc/rfc3986.txt.
+"""
+scalar URL
+
+type query_anthem_auth_config_auth_tokens {
+  url_base: URL
+
+  query_param: query_anthem_auth_config_auth_tokens_query_param
+}
+
+type query_anthem_auth_config_auth_tokens_query_param {
+  access_token: String
+
+  refresh_token: String
+
+  expiration_seconds: String
+}
+
+type AddMedicationImportPayload {
+  """
+  A successful import
+  """
+  medicationImport: MedicationImport!
+}
+
+input AddMedicationInput {
+  """
+  E.g. tablet, solution, pellet, injection
+  """
+  dosageForm: String!
+
+  """
+  The NDC package code
+  """
+  ndcPackageCode: String!
+
+  """
+  Non-Brand Name, like generic name. E.g. Tolnaftate, Fluoxetine hydrochloride
+  """
+  nonProprietaryName: String!
+
+  """
+  Brand Name. E.g. Brilinta, Prozac, Spikevax, etc
+  """
+  proprietaryName: String!
+
+  """
+  How the medication is taken. E.g. oral, topical, intramuscular
+  """
+  route: String!
+
+  """
+  E.g. 90 mg/1, .1 mg/1, .1 mg/mL
+  """
+  strength: String!
+}
+
+type AddMedicationPayload {
+  """
+  The saved medications
+  """
+  medications: [Medication!]!
+}
+
+input AddReminderTimeInput {
+  """
+  This is a LocalTime, meaning HH:mm, e.g. 16:24, 06:00
+  """
+  time: LocalTime!
+}
+
+type AddReminderTimePayload {
+  """
+  The added reminder time
+  """
+  time: ReminderTime!
+}
+
+"""
+Create a new Whole Health Record
+"""
+input CreateWholeHealthRecordInput {
+  """
+  The tenant member id
+  """
+  memberId: String!
+}
+
+type DailyStepTrackingActivity {
+  """
+  The date that the tracking for this day was created
+  """
+  createDate: DateTime!
+
+  """
+  The step goal for the day being tracked
+  """
+  dailyStepGoal: PositiveInt!
+
+  """
+  The day being tracked
+  """
+  date: LocalDate!
+
+  """
+  Last time the this tracking day was updated
+  """
+  lastUpdatedDate: DateTime!
+
+  """
+  The step goal for the day being tracked
+  """
+  steps: PositiveInt!
+}
+
+"""
+Find medication details by their NDC
+"""
+input FindMedicationDetailsByNdc {
+  """
+  NDCs to resolve
+  """
+  ndcPackageCodes: [String!]!
+}
+
+"""
+Find Step Activity
+"""
+input FindStepsByDateInput {
+  """
+  The dates to load for activity
+  """
+  forDates: [LocalDate!]!
+}
+
+type FindStepsResponsePayload {
+  """
+  Step tracking activity
+  """
+  activity: [DailyStepTrackingActivity!]
+}
+
+"""
+Used 
+"""
+enum ImportAction {
+  NOT_RIGHT_NOW
+
+  OK
+}
+
+"""
+A local date string (i.e., with no associated timezone) in `YYYY-MM-DD` format, e.g. `2020-01-01`.
+"""
+scalar LocalDate
+
+"""
+A local time string (i.e., with no associated timezone) in 24-hr `HH:mm[:ss[.SSS]]` format, e.g. `14:25` or `14:25:06` or `14:25:06.123`.
+"""
+scalar LocalTime
+
+type Medication {
+  """
+  Member health condition(s) attached to this medication
+  """
+  conditions: String
+
+  """
+  E.g. tablet, solution, pellet, injection
+  """
+  dosageForm: String!
+
+  id: UUID!
+
+  """
+  The NDC package code
+  """
+  ndcPackageCode: String!
+
+  """
+  Non-Brand Name, like generic name. E.g. Tolnaftate, Fluoxetine hydrochloride
+  """
+  nonProprietaryName: String!
+
+  """
+  Member notes
+  """
+  notes: String
+
+  """
+  Brand Name. E.g. Brilinta, Prozac, Spikevax, etc
+  """
+  proprietaryName: String!
+
+  """
+  How the medication is taken. E.g. oral, topical, intramuscular
+  """
+  route: String!
+
+  """
+  E.g. 90 mg/1, .1 mg/1, .1 mg/mL
+  """
+  strength: String!
+}
+
+type MedicationDailyReminderSchedule {
+  """
+  The list of times that the member wants to be reminded about medications during the day
+  """
+  times: [ReminderTime!]
+}
+
+type MedicationDetail {
+  """
+  E.g. tablet, solution, pellet, injection
+  """
+  dosageForm: String!
+
+  """
+  Non-Brand Name, like generic name. E.g. Tolnaftate, Fluoxetine hydrochloride
+  """
+  nonProprietaryName: String!
+
+  """
+  Brand Name. E.g. Brilinta, Prozac, Spikevax, etc
+  """
+  proprietaryName: String!
+
+  """
+  How the medication is taken. E.g. oral, topical, intramuscular
+  """
+  route: String!
+
+  """
+  E.g. 90 mg/1, .1 mg/1, .1 mg/mL
+  """
+  strength: String!
+}
+
+type MedicationDispense {
+  """
+  Number of days medication should supply the member
+  """
+  daysSupply: PositiveInt
+
+  """
+  The NDC package code
+  """
+  ndcPackageCode: String
+
+  """
+  Amount dispensed
+  """
+  quantity: PositiveFloat
+
+  """
+  Date the medication was given out
+  """
+  whenHandedOver: DateTime
+
+  """
+  The medication details
+  """
+  details: MedicationDetail
+}
+
+type MedicationImport {
+  """
+  The member response to the import prompt
+  """
+  action: ImportAction!
+
+  """
+  Marks when the import was first saved
+  """
+  createDate: DateTime!
+
+  id: UUID!
+}
+
+type MedicationManagement {
+  """
+  The list of medication reminders the member has set for each day
+  """
+  dailyReminderSchedule: MedicationDailyReminderSchedule
+
+  """
+  The list of times that a member has seen/performed a 'medication import'
+  """
+  imports: [MedicationImport!]
+
+  """
+  The list of medications the member has imported
+  """
+  medications: [Medication!]
+}
+
+type MemberDetails {
+  memberId: String!
+}
+
+"""
+Floats that will have a value greater than 0.
+"""
+scalar PositiveFloat
+
+"""
+Integers that will have a value greater than 0.
+"""
+scalar PositiveInt
+
+type ReminderTime {
+  id: UUID!
+
+  """
+  This is a LocalTime, meaning HH:mm, e.g. 16:24, 06:00
+  """
+  time: LocalTime!
+}
+
+type RemoveIndividualResponsePayload {
+  """
+  Whether or not the remove completed successfully
+  """
+  success: Boolean!
+}
+
+input RemoveMedicationInput {
+  id: UUID!
+}
+
+type StepActivityResponsePayload {
+  """
+  Whether or not the operation completed successfully
+  """
+  success: Boolean!
+}
+
+"""
+Step tracking management
+"""
+type StepTrackingActivityManagementModelPayload {
+  """
+  When this record was created
+  """
+  createdDate: DateTime!
+}
+
+type SuccessResponsePayload {
+  """
+  Whether or not the operation completed successfully
+  """
+  success: Boolean!
+}
+
+type TrackActivityResponsePayload {
+  """
+  Whether or not the operation completed successfully
+  """
+  success: Boolean!
+}
+
+"""
+A field whose value is a generic Universally Unique Identifier: https://en.wikipedia.org/wiki/Universally_unique_identifier.
+"""
+scalar UUID
+
+"""
+The whole object is persisted. Passing empty/null for any of the fields here will blank them out
+"""
+input UpdateMedicationDetailsInput {
+  """
+  Member health condition(s) attached to this medication.
+  """
+  conditions: String
+
+  """
+  The medication id
+  """
+  id: UUID!
+
+  """
+  Member maintained notes
+  """
+  notes: String
+}
+
+"""
+Update Step Activity Input
+"""
+input UpdateStepActivityInput {
+  """
+  The day being tracked
+  """
+  date: LocalDate!
+
+  """
+  The updated number of steps for the day
+  """
+  steps: PositiveInt!
+}
+
+"""
+Member data to provide a 'whole health experience'
+"""
+type WholeHealthModel {
+  """
+  When this record was created
+  """
+  createdDate: DateTime!
+
+  """
+  Last time this record was updated
+  """
+  lastUpdatedDate: DateTime!
+
+  """
+  Medications managed by the member
+  """
+  managedMedications: MedicationManagement
+
+  """
+  The phone number that a member can call to speak with a nurse
+  """
+  nurseLinePhoneNumber: String
+
+  """
+  The list of medications picked up from the pharmacy by the member
+  """
+  dispensedMedications: [MedicationDispense]
+
+  """
+  The step tracking activity management for the member
+  """
+  stepTracking: StepTrackingActivityManagementModelPayload
+}
+
+input App {
+  expoapplist: [String!]
+
+  sourceapp: String
+}
+
+type AppModel {
+  expoapplist: [String!]
+
+  sourceapp: String
+}
+
+type ContactInfo {
+  email: String
+
+  isMfaValidated: Boolean
+
+  isPrimary: Boolean
+
+  phone: String
+}
+
+type ExternalIDModel {
+  brazeId: String
+
+  clientApp: String
+
+  fullStoryId: String
+}
+
+input ExternalIDs {
+  brazeId: String
+
+  fullStoryId: String
+}
+
+"""
+The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSONObject
+
+input ListProfileServicesFilterInput {
+  AND: [ListProfileServicesFilterInput!]
+
+  NOR: [ListProfileServicesFilterInput!]
+
+  NOT: ListProfileServicesFilterInput
+
+  OR: [ListProfileServicesFilterInput!]
+
+  app: App
+
+  appData: JSONObject
+
+  appDetails: [XpoAppDetailsInput!]
+
+  appId: String
+
+  caremarket: JSONObject
+
+  externalIDs: [ExternalIDs!]
+
+  filter: JSONObject
+
+  maya: JSONObject
+
+  tenantId: String
+
+  xpoId: String
+}
+
+type ProfileServiceMutationResult {
+  id: String
+
+  message: String
+
+  status: String
+}
+
+type ProfileServicesDTOView {
+  app: AppModel @deprecated(reason: "use additionalDetails instead")
+
+  """
+  all the details associated with the user
+  """
+  appData: JSONObject
+
+  caremarket: JSONObject @deprecated(reason: "use additionalDetails instead")
+
+  createdTimeStamp: String
+
+  externalIDs: [ExternalIDModel!] @deprecated(reason: "use additionalDetails instead")
+
+  lastUpdatedTimeStamp: String
+
+  maya: JSONObject @deprecated(reason: "use additionalDetails instead")
+
+  userProfile: JSONObject @deprecated(reason: "use additionalDetails instead")
+
+  xpoId: String!
+}
+
+input ProfileServicesInput {
+  app: App
+
+  appData: XpoAppDetailsInput
+
+  caremarket: JSONObject
+
+  createdTimeStamp: String
+
+  externalIDs: [ExternalIDs!]
+
+  lastUpdatedTimeStamp: String
+
+  userProfile: XpoUserProfile
+
+  xpoId: String
+}
+
+type ProfileServicesV2DTO {
+  _id: String
+
+  """
+  AdditionalDetails belonging to the user
+  """
+  additionalDetails: JSONObject
+
+  """
+  ExternalIDs mapped for user
+  """
+  externalIDs: ExternalIDModel
+
+  """
+  Profile Information of the user
+  """
+  userProfile: XpoProfileDTO
+}
+
+input ProfileServicesV2Input {
+  """
+  Additional information belonging to an user.
+  """
+  additionalDetails: JSONObject
+
+  """
+  ExternalID object with externalID mapping
+  """
+  externalIDs: ExternalIDs
+
+  """
+  Profile information of an user
+  """
+  userProfile: XpoUserProfile
+
+  xpoId: String
+}
+
+input XpoAppDetailsInput {
+  additionalDetails: JSONObject
+
+  """
+  AppId of the user
+  """
+  appId: String
+
+  """
+  ExternalID object with externalID mapping
+  """
+  externalIDs: ExternalIDs
+
+  fullStoryExternalId: String
+
+  isDemographicInfoShown: Boolean
+
+  """
+  TenantId of the user
+  """
+  tenantId: String
+
+  """
+  Profile information of an user
+  """
+  userProfile: XpoUserProfile
+}
+
+type XpoAppDetailsModel {
+  """
+  AdditionalDetails belonging to the user
+  """
+  additionalDetails: JSONObject
+
+  appId: String!
+
+  """
+  ExternalIDs mapped for user
+  """
+  externalIDs: ExternalIDModel
+
+  fullStoryExternalId: String @deprecated(reason: "use externalIDs instead")
+
+  isDemographicInfoShown: Boolean @deprecated(reason: "use additionalDetails instead")
+
+  tenantId: String!
+
+  user: JSONObject @deprecated(reason: "use userProfile instead")
+
+  """
+  Profile Information of the user
+  """
+  userProfile: XpoProfileDTO
+}
+
+type XpoProfileDTO {
+  email: [ContactInfo!]
+
+  firstName: String
+
+  lastName: String
+
+  phoneNumber: [ContactInfo!]
+}
+
+input XpoUserProfile {
+  firstName: String
+
+  lastName: String
+}
+
+scalar ResolveToSourceArgs
+
+schema {
+  query: Query
+  mutation: Mutation
+}

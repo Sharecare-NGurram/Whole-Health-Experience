@@ -1,0 +1,9 @@
+mutation MarkMedicationImported($data:[ImportAction!]) {
+    addMedicationImport(input: $data) {
+        medicationImport {
+            action
+            createDate
+            id
+        }
+    }
+}

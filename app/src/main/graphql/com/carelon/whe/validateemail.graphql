@@ -1,0 +1,10 @@
+mutation ValidateEmail($emailInput: mutationInput_post_xpocare_v1_user_validateEmail_input_contactInfo_Input!){
+    validateEmail(input: {
+        contactInfo: $emailInput
+    }){
+        token
+        pingRiskId
+        pingUserId
+        pingDeviceId
+    }
+}

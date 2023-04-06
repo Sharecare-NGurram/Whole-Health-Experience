@@ -1,0 +1,14 @@
+query WholeHealth {
+    anthem_auth_config {
+        auth_tokens {
+            url_base
+            query_param {
+                access_token
+                expiration_seconds
+                refresh_token
+            }
+        }
+        login_url
+    }
+}
+

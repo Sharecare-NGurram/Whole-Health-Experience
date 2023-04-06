@@ -1,0 +1,12 @@
+query GetProfile {
+    xpoProfile {
+        userProfile {
+            firstName
+            email {
+                email
+                isMfaValidated
+                isPrimary
+            }
+        }
+    }
+}

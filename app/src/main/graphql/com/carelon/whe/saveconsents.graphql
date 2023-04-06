@@ -1,0 +1,8 @@
+mutation SaveConsents ($consentsToSend: [ConsentV2Request_Input]) {
+    addConsents(input: {
+        consents: $consentsToSend
+    }) {
+        status
+        message
+    }
+}

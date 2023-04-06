@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Text Style -->
+    <style name="text_normal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <style name="text_normal_bold">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+
+    <style name="headline_h1_bold_secondary" parent="text_normal_bold">
+        <item name="android:textColor">@color/text_colorSecondary</item>
+        <item name="android:textSize">@dimen/headline_h1</item>
+        <item name="android:fontFamily">@font/sans_bold</item>
+    </style>
+    <style name="headline_h1_semiBold_secondary" parent="text_normal">
+        <item name="android:textColor">@color/text_colorSecondary</item>
+        <item name="android:textSize">@dimen/headline_h1</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+    <style name="headline_h1_medium_secondary" parent="text_normal">
+        <item name="android:textColor">@color/text_colorSecondary</item>
+        <item name="android:textSize">@dimen/headline_h1</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+    <style name="headline_h2_semiBold_secondary" parent="text_normal_bold">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:textColor">@color/text_colorSecondary</item>
+        <item name="android:textSize">@dimen/headline_h2</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+    <style name="headline_h2_semiBold_primary" parent="text_normal_bold">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:textColor">@color/text_colorPrimary</item>
+        <item name="android:textSize">@dimen/headline_h2</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+    <style name="headline_h4_medium_primary" parent="text_normal_bold">
+        <item name="android:textColor">@color/text_colorPrimary</item>
+        <item name="android:textSize">@dimen/headline_h4</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+    <style name="headline_h3_medium_secondaryLight" parent="text_normal">
+        <item name="android:textColor">@color/text_colorSecondaryLight</item>
+        <item name="android:textSize">@dimen/headline_h3</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+    <style name="headline_h4_semiBold_primary" parent="text_normal_bold">
+        <item name="android:textColor">@color/text_colorPrimary</item>
+        <item name="android:textSize">@dimen/headline_h4</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+    <style name="headline_h4_semiBold_secondary" parent="text_normal_bold">
+        <item name="android:textColor">@color/text_colorSecondary</item>
+        <item name="android:textSize">@dimen/headline_h4</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+    <style name="headline_h4_semiBold_purple" parent="text_normal_bold">
+        <item name="android:textColor">@color/purple</item>
+        <item name="android:textSize">@dimen/headline_h4</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+    <style name="headline_h5_semiBold_purple" parent="text_normal_bold">
+        <item name="android:textColor">@color/purple</item>
+        <item name="android:textSize">@dimen/headline_h5</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+    <style name="headline_h5_semiBold_primary" parent="text_normal_bold">
+        <item name="android:textColor">@color/text_colorPrimary</item>
+        <item name="android:textSize">@dimen/headline_h5</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+    <style name="headline_h4_semiBold_primary.dark_gray" parent="text_normal_bold">
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textSize">@dimen/headline_h4</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+    <style name="headline_h3_semiBold_primary.dark_gray" parent="text_normal_bold">
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textSize">@dimen/headline_h3</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+    <style name="headline_h6_medium_green" parent="text_normal_bold">
+        <item name="android:textColor">@color/text_colorGreen</item>
+        <item name="android:textSize">@dimen/headline_h6</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+    <style name="body_medium_semiBold_secondary" parent="text_normal">
+        <item name="android:textColor">@color/text_colorSecondary</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+    <style name="body_medium_primary" parent="text_normal_bold">
+        <item name="android:textColor">@color/text_colorPrimary</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+    <style name="body_semiBold_primary" parent="text_normal_bold">
+        <item name="android:textColor">@color/text_colorPrimary</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+    <style name="body_medium_semiBold_secondaryLight" parent="text_normal">
+        <item name="android:textColor">@color/text_colorSecondaryLight</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+    <style name="body_medium_secondaryLight" parent="text_normal_bold">
+        <item name="android:textColor">@color/text_colorSecondaryLight</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+    <style name="body_17_medium_secondaryLight" parent="text_normal_bold">
+        <item name="android:textColor">@color/text_colorSecondaryLight</item>
+        <item name="android:textSize">@dimen/body_17</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+    <style name="body_17_medium_secondary" parent="text_normal_bold">
+        <item name="android:textColor">@color/text_colorSecondary</item>
+        <item name="android:textSize">@dimen/body_17</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+    <style name="body_17_semiBold_secondary" parent="text_normal_bold">
+        <item name="android:textColor">@color/text_colorSecondary</item>
+        <item name="android:textSize">@dimen/body_17</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+    <style name="body_17_medium_green" parent="text_normal_bold">
+        <item name="android:textColor">@color/text_colorGreen</item>
+        <item name="android:textSize">@dimen/body_17</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+    <style name="body_15_semiBold_green" parent="text_normal_bold">
+        <item name="android:textColor">@color/text_colorGreen</item>
+        <item name="android:textSize">@dimen/body_15</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+    <style name="body_17_semiBold_purple" parent="text_normal_bold">
+        <item name="android:textColor">@color/purple</item>
+        <item name="android:textSize">@dimen/body_17</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+    <style name="body_medium_regular_secondary" parent="text_normal">
+        <item name="android:textColor">@color/text_colorSecondary</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+    <style name="body_medium_regular_primary" parent="text_normal">
+        <item name="android:textColor">@color/text_colorPrimary</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+    <style name="body_medium_link" parent="text_normal">
+        <item name="android:textColor">@color/button_blue</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+    <style name="medicine_reminder_delete" parent="text_normal">
+        <item name="android:textColor">@color/text_colorRed</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+    <style name="body_medium_semiBold_purple" parent="text_normal">
+        <item name="android:textColor">@color/purple</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+    <style name="body_15_medium_primary" parent="text_normal_bold">
+        <item name="android:textColor">@color/text_colorPrimary</item>
+        <item name="android:textSize">@dimen/body_15</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+    <style name="body_15_semibold_primary" parent="text_normal_bold">
+        <item name="android:textColor">@color/text_colorPrimary</item>
+        <item name="android:textSize">@dimen/body_15</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+    <style name="body_15_medium_secondary" parent="text_normal_bold">
+        <item name="android:textColor">@color/text_colorSecondary</item>
+        <item name="android:textSize">@dimen/body_15</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+    <style name="body_15_medium_gray" parent="text_normal_bold">
+        <item name="android:textColor">@color/text_colorSecondaryLight</item>
+        <item name="android:textSize">@dimen/body_15</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+    <style name="body_small_medium_secondary" parent="text_normal_bold">
+        <item name="android:textColor">@color/text_colorSecondary</item>
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+    <style name="body_small_semibold_secondary" parent="text_normal_bold">
+        <item name="android:textColor">@color/text_colorSecondary</item>
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+
+    <!-- EditText style -->
+    <style name="edit_normal_black">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/edit_height</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:paddingStart">@dimen/m10</item>
+        <item name="android:paddingEnd">@dimen/m10</item>
+    </style>
+    <style name="edit_medium_email" parent="body_15_medium_primary">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/m44</item>
+        <item name="android:paddingStart">@dimen/m17</item>
+        <item name="android:paddingEnd">@dimen/m15</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColorHint">@color/mid_gray</item>
+        <item name="android:inputType">textEmailAddress</item>
+    </style>
+
+    <!-- Button Style -->
+    <style name="button_normal_rounded">
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="cornerRadius">@dimen/m10</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+    </style>
+    <style name="button_normal">
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+    </style>
+
+
+    <style name="button_large_blue" parent="button_normal_rounded">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/button_normal_height</item>
+        <item name="backgroundTint">@color/button_blue</item>
+    </style>
+    <style name="button_medium_purple" parent="button_normal_rounded">
+        <item name="android:layout_width">@dimen/button_medium_width</item>
+        <item name="android:layout_height">@dimen/button_normal_height</item>
+        <item name="backgroundTint">@color/button_purple</item>
+    </style>
+    <style name="button_small_orange" parent="button_normal">
+        <item name="android:layout_width">@dimen/button_normal_width</item>
+        <item name="android:layout_height">@dimen/button_normal_height</item>
+        <item name="backgroundTint">@color/button_orange</item>
+    </style>
+    <style name="button_small_purple" parent="button_normal_rounded">
+        <item name="android:layout_width">@dimen/button_small_width</item>
+        <item name="android:layout_height">@dimen/button_normal_height</item>
+        <item name="backgroundTint">@color/button_purple</item>
+    </style>
+    <style name="button_small_purple_light" parent="button_normal_rounded">
+        <item name="android:layout_width">@dimen/button_small_width</item>
+        <item name="android:layout_height">@dimen/button_normal_height</item>
+        <item name="android:textColor">@color/button_text_purple</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="button_white" parent="button_normal_rounded">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/button_normal_height</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/purple_medium</item>
+    </style>
+    <style name="button_white_purple_outline" parent="button_normal_rounded">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/button_medium_height</item>
+        <item name="android:background">@drawable/button_purple_border_rounded</item>
+        <item name="android:textColor">@color/purple</item>
+        <item name="android:textSize">@dimen/body_17</item>
+    </style>
+
+    <!-- Login Related Style -->
+    <style name="login_header" parent="text_normal">
+        <item name="android:textSize">@dimen/headline_h3</item>
+        <item name="android:textColor">@color/light_gray</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+    <style name="login_edittext_header_primary" parent="text_normal_bold">
+        <item name="android:textColor">@color/text_colorPrimary</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:fontFamily">@font/sans_bold</item>
+    </style>
+    <style name="login_edittext" parent="edit_normal_black">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+        <item name="android:background">@drawable/drawable_edit_bg</item>
+    </style>
+
+    <!-- Weekly Calendar Styles -->
+    <style name="calendar_text_date_regular" parent="text_normal">
+        <item name="android:layout_width">@dimen/single_date_cell_width</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:textColor">@color/text_date_unselected</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+    <style name="calendar_text_date_bold" parent="text_normal">
+        <item name="android:layout_width">@dimen/single_date_cell_width</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:textColor">@color/text_date_unselected</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+
+    <!-- BottomNavTab Style -->
+    <style name="BottomNavigationViewTextStyle">
+        <item name="android:fontFamily">@font/sans_medium</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="BottomNavigationViewTextStyleSelected">
+        <item name="android:fontFamily">@font/sans_semibold</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Toast Styles -->
+    <style name="toast_success_text" parent="text_normal">
+        <item name="android:textColor">@color/text_colorSecondary</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+        <item name="android:background">@drawable/drawable_toast_sucess_bg</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingStart">@dimen/m20</item>
+        <item name="android:paddingEnd">@dimen/m20</item>
+        <item name="android:paddingTop">@dimen/m10</item>
+        <item name="android:paddingBottom">@dimen/m10</item>
+    </style>
+
+    <style name="headline_h5_medium_normal" parent="text_normal_bold">
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textSize">@dimen/headline_h5</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+
+    <style name="headline_h6_medium_normal" parent="text_normal_bold">
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textSize">@dimen/headline_h6</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+
+    <style name="body_medium_xlarge_primary" parent="text_normal">
+        <item name="android:textColor">@color/text_colorPrimary</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:textSize">@dimen/headline_h4</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+
+    <style name="body_medium_xlarge_primary.dark_gray" parent="text_normal_bold">
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:textSize">@dimen/headline_h4</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+
+    <style name="button_try_again" parent="button_normal_rounded">
+        <item name="android:layout_width">@dimen/button_medium_width</item>
+        <item name="android:layout_height">@dimen/button_normal_height</item>
+        <item name="android:background">@drawable/bg_try_again_button</item>
+    </style>
+
+    <style name="time_picker_enabled" parent="text_normal_bold">
+        <item name="android:textSize">@dimen/headline_h2</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_wheel_text_color</item>
+    </style>
+
+    <style name="time_picker_disabled" parent="text_normal_bold">
+        <item name="android:textSize">@dimen/headline_h3</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_wheel_disable_text_color</item>
+    </style>
+
+    <style name="headline_h3_medium_semibold" parent="text_normal">
+        <item name="android:textColor">@color/text_colorSecondaryLight</item>
+        <item name="android:textSize">@dimen/headline_h3</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+
+    <style name="input_medication_details">
+        <item name="android:textColorHint">@color/mid_gray</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+        <item name="android:paddingTop">@dimen/m15</item>
+        <item name="android:paddingBottom">@dimen/m15</item>
+        <item name="android:paddingStart">@dimen/m20</item>
+        <item name="android:paddingEnd">@dimen/m20</item>
+        <item name="android:drawablePadding">@dimen/m15</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/m30</item>
+        <item name="android:layout_marginEnd">@dimen/m30</item>
+        <item name="android:background">@drawable/bg_input_pale_gray</item>
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <style name="AppBottomSheetDialogTheme"
+        parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle"
+        parent="Widget.MaterialComponents.BottomSheet">
+        <item name="shapeAppearanceOverlay">@style/CustomShapeAppearanceBottomSheetDialog</item>
+    </style>
+
+    <style name="CustomShapeAppearanceBottomSheetDialog" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">@dimen/m20</item>
+        <item name="cornerSizeTopLeft">@dimen/m20</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    <style name="body_17_semiBold_normal" parent="text_normal">
+        <item name="android:textColor">@color/purple</item>
+        <item name="android:textSize">@dimen/body_17</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+
+    <style name="body_17_semiBold_black" parent="text_normal_bold">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/body_17</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+
+    <style name="body_13_regular_black" parent="text_normal">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/body_13</item>
+        <item name="android:fontFamily">@font/sans_regular</item>
+    </style>
+
+    <style name="body_17_semiBold_blue" parent="text_normal_bold">
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">@dimen/body_17</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+
+    <style name="body_17_regular_blue" parent="text_normal">
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">@dimen/body_17</item>
+        <item name="android:fontFamily">@font/sans_regular</item>
+    </style>
+
+    <style name="body_17_regular_medium_gray" parent="text_normal">
+        <item name="android:textColor">@color/light_gray</item>
+        <item name="android:textSize">@dimen/body_17</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+    </style>
+
+    <style name="input_otp">
+        <item name="android:textSize">@dimen/text_xlarge</item>
+        <item name="android:fontFamily">@font/sans_semibold</item>
+        <item name="android:layout_width">@dimen/m40</item>
+        <item name="android:layout_height">@dimen/m40</item>
+        <item name="android:background">@drawable/bg_otp_inactive</item>
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textCursorDrawable">@drawable/drawable_cursor_purple</item>
+        <item name="android:textSelectHandle">@drawable/drawable_cursor_purple</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:inputType">number</item>
+        <item name="android:maxLength">1</item>
+        <item name="android:layout_margin">@dimen/m5</item>
+    </style>
+    
+    <style name="HealthAccessDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="buttonBarPositiveButtonStyle">@style/DialogButtonStyle</item>
+        <item name="buttonBarNegativeButtonStyle">@style/DialogButtonStyle</item>
+    </style>
+
+    <style name="body_17_medium_purple" parent="text_normal_bold">
+        <item name="android:textColor">@color/purple_medium</item>
+        <item name="android:textSize">@dimen/body_17</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+
+    <style name="body_17_medium_dark_purple" parent="text_normal_bold">
+        <item name="android:textColor">@color/dark_purple</item>
+        <item name="android:textSize">@dimen/body_17</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+
+    <style name="body_17_medium_cyan" parent="text_normal_bold">
+        <item name="android:textColor">@color/cyan</item>
+        <item name="android:textSize">@dimen/body_17</item>
+        <item name="android:fontFamily">@font/sans_medium</item>
+    </style>
+
+    <style name="DialogButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/blue</item>
+        <item name="rippleColor">@color/blue</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+</resources>

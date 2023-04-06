@@ -1,0 +1,246 @@
+{
+  "medicines": [
+    {
+      "id": "1",
+      "medName": "Diovan HCT",
+      "amount": "160mg",
+      "type": "oral tablet",
+      "doctorName": "Dr.Judy Jones",
+      "prescriptionDate": "14-01-2021",
+      "pharmacyName": "Dr. Judy Jones",
+      "filledDate": "14-05-2021",
+      "pharmacyAddress": "CVS Health, \nOne CVS Drive, Woonsocket, \nRhode Island 02895, \nUnited States"
+    },
+    {
+      "id": "2",
+      "medName": "Medication Name",
+      "amount": "10ml",
+      "type": "liquid oral",
+      "doctorName": "Dr.David Langer",
+      "prescriptionDate": "14-05-2021",
+      "pharmacyName": "Dr. Judy Jones",
+      "filledDate": "16-05-2021",
+      "pharmacyAddress": "725 E Northern Lights Blvd, \nAnchorage, \nAK 99503, \nUnited States"
+    },
+    {
+      "id": "3",
+      "medName": "Fancy Medication Fancy Medication Fancy Medication Fancy Medication Fancy Medication Fancy Medication Fancy Medication Fancy Medication Fancy Medication Fancy Medication Fancy Medication Fancy Medication Fancy Medication Fancy Medication Fancy Medication Fancy Medication",
+      "amount": "50ml",
+      "type": "liquid oral",
+      "doctorName": "Dr. John A. Millard",
+      "prescriptionDate": "11-07-2010",
+      "pharmacyName": "Dr. Judy Jones",
+      "filledDate": "17-07-2010",
+      "pharmacyAddress": "19503 S Normandie Ave, \nTorrance, \nCA 90501, \nUnited States"
+    },
+    {
+      "id": "4",
+      "medName": "Atorvastatin",
+      "amount": "160mg",
+      "type": "oral tablet",
+      "doctorName": "Dr. Behrooz Torkian",
+      "prescriptionDate": "24-03-2014",
+      "pharmacyName": "Dr. Judy Jones",
+      "filledDate": "26-03-201",
+      "pharmacyAddress": "1014 Vine St, \nCincinnati, \nOH 45202, \nUnited States"
+    },
+    {
+      "id": "5",
+      "medName": "Lisinopril",
+      "amount": "120mg",
+      "type": "oral tablet",
+      "doctorName": "Dr. David J. Pincus",
+      "prescriptionDate": "19-05-2019",
+      "pharmacyName": "Dr. Judy Jones",
+      "filledDate": "23-05-2019",
+      "pharmacyAddress": "1738 US Highway 18, \nApple Valley, \nCA 92307, \nUnited States"
+    },
+    {
+      "id": "6",
+      "medName": "Metformin",
+      "amount": "15ml",
+      "type": "liquid oral",
+      "doctorName": "Dr. Jocelynn Vida",
+      "prescriptionDate": "11-08-2020",
+      "pharmacyName": "Dr. Judy Jones",
+      "filledDate": "12-08-2020",
+      "pharmacyAddress": "655 14th St, \nSan Diego, \nCA 92101, \nUnited States"
+    },
+    {
+      "id": "7",
+      "medName": "Amlodipine",
+      "amount": "100mg",
+      "type": "oral tablet",
+      "doctorName": "Dr. Judy Jones",
+      "prescriptionDate": "03-02-2021",
+      "pharmacyName": "Dr. Pouria Moradi",
+      "filledDate": "05-02-2021",
+      "pharmacyAddress": "1776 Biscayne Blvd, \nMiami, \nFL 33132, \nUnited States"
+    },
+    {
+      "id": "8",
+      "medName": "Metoprolol",
+      "amount": "220mg",
+      "type": "oral tablet",
+      "doctorName": "Dr. Judy Jones",
+      "prescriptionDate": "09-07-2022",
+      "pharmacyName": "Dr. Stephen Cabral",
+      "filledDate": "14-07-2022",
+      "pharmacyAddress": "976 3rd Ave, \nBrooklyn, \nNY 11232, \nUnited States"
+    },
+    {
+      "id": "9",
+      "medName": "Nexonac",
+      "amount": "320mg",
+      "type": "oral tablet",
+      "doctorName": "Dr. Judy Jones",
+      "prescriptionDate": "11-02-2022",
+      "pharmacyName": "Dr. Stephen Cabral",
+      "filledDate": "14-07-2022",
+      "pharmacyAddress": "976 3rd Ave, \nBrooklyn, \nNY 11232, \nUnited States"
+    },
+    {
+      "id": "10",
+      "medName": "Clofenac",
+      "amount": "520mg",
+      "type": "oral tablet",
+      "doctorName": "Dr. Judy Jones",
+      "prescriptionDate": "03-06-2022",
+      "pharmacyName": "Dr. Stephen Cabral",
+      "filledDate": "14-07-2022",
+      "pharmacyAddress": "976 3rd Ave, \nBrooklyn, \nNY 11232, \nUnited States"
+    },
+    {
+      "id": "11",
+      "medName": "Diclotaj",
+      "amount": "18mg",
+      "type": "oral tablet",
+      "doctorName": "Dr. Judy Jones",
+      "prescriptionDate": "09-07-2022",
+      "pharmacyName": "Dr. Stephen Cabral",
+      "filledDate": "18-07-2022",
+      "pharmacyAddress": "976 3rd Ave, \nBrooklyn, \nNY 11232, \nUnited States"
+    },
+    {
+      "id": "12",
+      "medName": "Diclomax",
+      "amount": "367mg",
+      "type": "oral tablet",
+      "doctorName": "Dr. Judy Jones",
+      "prescriptionDate": "09-07-2022",
+      "pharmacyName": "Dr. Stephen Cabral",
+      "filledDate": "21-07-2022",
+      "pharmacyAddress": "976 3rd Ave, \nBrooklyn, \nNY 11232, \nUnited States"
+    },
+    {
+      "id": "13",
+      "medName": "Nufenac",
+      "amount": "12mg",
+      "type": "oral tablet",
+      "doctorName": "Dr. Judy Jones",
+      "prescriptionDate": "09-07-2022",
+      "pharmacyName": "Dr. Stephen Cabral",
+      "filledDate": "25-07-2022",
+      "pharmacyAddress": "976 3rd Ave, \nBrooklyn, \nNY 11232, \nUnited States"
+    },
+    {
+      "id": "14",
+      "medName": "StayHappi Diclofenac",
+      "amount": "198mg",
+      "type": "oral tablet",
+      "doctorName": "Dr. Judy Jones",
+      "prescriptionDate": "09-07-2022",
+      "pharmacyName": "Dr. Stephen Cabral",
+      "filledDate": "20-07-2022",
+      "pharmacyAddress": "976 3rd Ave, \nBrooklyn, \nNY 11232, \nUnited States"
+    },
+    {
+      "id": "15",
+      "medName": "INFLAMOL SP TABLET",
+      "amount": "523mg",
+      "type": "oral tablet",
+      "doctorName": "Dr. Judy Jones",
+      "prescriptionDate": "09-07-2022",
+      "pharmacyName": "Dr. Stephen Cabral",
+      "filledDate": "14-07-2022",
+      "pharmacyAddress": "976 3rd Ave, \nBrooklyn, \nNY 11232, \nUnited States"
+    },
+    {
+      "id": "16",
+      "medName": "Aducanumab",
+      "amount": "300mg",
+      "type": "oral tablet",
+      "doctorName": "Dr. Judy Jones",
+      "prescriptionDate": "09-07-2022",
+      "pharmacyName": "Dr. Stephen Cabral",
+      "filledDate": "03-07-2022",
+      "pharmacyAddress": "976 3rd Ave, \nBrooklyn, \nNY 11232, \nUnited States"
+    },
+    {
+      "id": "17",
+      "medName": "NVX-CoV2373",
+      "amount": "220mg",
+      "type": "oral tablet",
+      "doctorName": "Dr. Judy Jones",
+      "prescriptionDate": "09-07-2022",
+      "pharmacyName": "Dr. Stephen Cabral",
+      "filledDate": "27-07-2022",
+      "pharmacyAddress": "976 3rd Ave, \nBrooklyn, \nNY 11232, \nUnited States"
+    },
+    {
+      "id": "18",
+      "medName": "Efgartigimod",
+      "amount": "157mg",
+      "type": "oral tablet",
+      "doctorName": "Dr. Judy Jones",
+      "prescriptionDate": "09-07-2022",
+      "pharmacyName": "Dr. Stephen Cabral",
+      "filledDate": "22-07-2022",
+      "pharmacyAddress": "976 3rd Ave, \nBrooklyn, \nNY 11232, \nUnited States"
+    },
+    {
+      "id": "19",
+      "medName": "Deucravacitinib",
+      "amount": "634mg",
+      "type": "oral tablet",
+      "doctorName": "Dr. Judy Jones",
+      "prescriptionDate": "09-07-2022",
+      "pharmacyName": "Dr. Stephen Cabral",
+      "filledDate": "21-07-2022",
+      "pharmacyAddress": "976 3rd Ave, \nBrooklyn, \nNY 11232, \nUnited States"
+    },
+    {
+      "id": "20",
+      "medName": "Bardoxolone methyl",
+      "amount": "86mg",
+      "type": "oral tablet",
+      "doctorName": "Dr. Judy Jones",
+      "prescriptionDate": "09-07-2022",
+      "pharmacyName": "Dr. Stephen Cabral",
+      "filledDate": "27-07-2022",
+      "pharmacyAddress": "976 3rd Ave, \nBrooklyn, \nNY 11232, \nUnited States"
+    },
+    {
+      "id": "21",
+      "medName": "Metoprolol",
+      "amount": "43mg",
+      "type": "oral tablet",
+      "doctorName": "Dr. Judy Jones",
+      "prescriptionDate": "09-07-2022",
+      "pharmacyName": "Dr. Stephen Cabral",
+      "filledDate": "11-07-2022",
+      "pharmacyAddress": "976 3rd Ave, \nBrooklyn, \nNY 11232, \nUnited States"
+    },
+    {
+      "id": "22",
+      "medName": "Fancy Medication Fancy Medication Fancy Medication",
+      "amount": "71mg",
+      "type": "oral tablet",
+      "doctorName": "Dr. Judy Jones",
+      "prescriptionDate": "09-07-2022",
+      "pharmacyName": "Dr. Stephen Cabral",
+      "filledDate": "17-07-2022",
+      "pharmacyAddress": "976 3rd Ave, \nBrooklyn, \nNY 11232, \nUnited States"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+def appId = [
+        packageName             : 'com.carelon.whe'
+]
+
+def versions = [
+        whxMinSDK               : 26,
+        whxTargetSDK            : 33,
+        whxCompileSDK           : 33,
+
+        // Version info
+        versionCode             : 1,
+        versionName             : '1.0',
+
+        // Android Dependencies
+        appcompat               : '1.5.1',
+        googleMaterial          : '1.7.0',
+        constraintlayout        : '2.1.4',
+        navigation              : '2.5.3',
+        liveData                : "2.5.1",
+        paging                  : '3.1.0',
+        sharedPreferences       : "1.0.0",
+        navigationui            : "2.5.3",
+        swipeToRefresh          : "1.1.0",
+        flexbox                 : "3.0.0",
+
+        // DI
+        hilt                    : '2.44',
+        hiltCompiler            : '2.44',
+
+        //GraphQL
+        appollo                 : '3.7.3',
+        okHttpClient            : '4.10.0',
+
+        // GSON
+        gson                    : "2.10.1",
+
+        // Glide
+        glide                   : '4.14.2',
+        glideCompiler           : '4.14.2',
+
+        // LeakCanary
+        leakCanary              : '2.10',
+
+        // Testing Dependencies
+        junit                   : '4.13.2',
+        androidJunit            : '1.1.4',
+        espresso                : '3.5.0',
+        mockito                 : '4.11.0',
+        kotlin                  : '1.9.0',
+
+        // Room
+        room                    : '2.5.0',
+        roomCompiler            : '2.5.0',
+        roomKtx                 : '2.5.0',
+
+        // Google
+        fitness                 : '21.1.0',
+        auth                    : '20.4.1'
+]
+
+def deps = [
+        'androidDeps': [
+                'kotlin': "androidx.core:core-ktx:$versions.kotlin",
+                'appcompat': "androidx.appcompat:appcompat:$versions.appcompat",
+                'material': "com.google.android.material:material:$versions.googleMaterial",
+                'constraintlayout': "androidx.constraintlayout:constraintlayout:$versions.constraintlayout",
+                'navigationFragment': "androidx.navigation:navigation-fragment-ktx:$versions.navigation",
+                'liveData' : "androidx.lifecycle:lifecycle-livedata-ktx:$versions.liveData",
+                'paging' : "androidx.paging:paging-runtime:$versions.paging",
+                'sharedPreferences' : "androidx.security:security-crypto:$versions.sharedPreferences",
+                'navigationUI' : "androidx.navigation:navigation-ui-ktx:$versions.navigationui",
+                'swipeToRefresh' : "androidx.swiperefreshlayout:swiperefreshlayout:$versions.swipeToRefresh",
+                'flexbox' : "com.google.android.flexbox:flexbox:$versions.flexbox"
+        ],
+        'di' : [
+                'hilt' : "com.google.dagger:hilt-android:$versions.hilt",
+                'hiltCompiler' : "com.google.dagger:hilt-android-compiler:$versions.hiltCompiler"
+        ],
+        'graphQL' : [
+                'appolloClient' : "com.apollographql.apollo3:apollo-runtime:$versions.appollo",
+                'okHttpClient' : "com.squareup.okhttp3:okhttp:$versions.okHttpClient",
+                'okHttpClientLoggingInterceptor' : "com.squareup.okhttp3:logging-interceptor:$versions.okHttpClient",
+                'gson' : "com.google.code.gson:gson:$versions.gson"
+        ],
+        'glide' : [
+                'glide' : "com.github.bumptech.glide:glide:$versions.glide",
+                'glideCompiler': "com.github.bumptech.glide:compiler:$versions.glideCompiler"
+        ],
+        'leakCanary' : [
+                'leakCanary' : "com.squareup.leakcanary:leakcanary-android:$versions.leakCanary"
+        ],
+        'testing' : [
+                'junit' : "junit:junit:$versions.junit",
+                'androidJunit' : "androidx.test.ext:junit:$versions.androidJunit",
+                'espresso' : "androidx.test.espresso:espresso-core:$versions.espresso",
+                'mockito' : "org.mockito:mockito-core:$versions.mockito"
+        ],
+        'room' : [
+                'room' : "androidx.room:room-runtime:$versions.room",
+                'roomCompiler': "androidx.room:room-compiler:$versions.roomCompiler",
+                'roomKtx': "androidx.room:room-ktx:$versions.roomKtx"
+        ],
+        'google' :[
+                'fitness' : "com.google.android.gms:play-services-fitness:$versions.fitness",
+                'auth'  : "com.google.android.gms:play-services-auth:$versions.auth"
+        ]
+
+]
+
+ext.appId = appId
+ext.versions = versions
+ext.deps = deps

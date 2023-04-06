@@ -1,0 +1,135 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- common margin -->
+    <dimen name="m1">1dp</dimen>
+    <dimen name="m2">2dp</dimen>
+    <dimen name="m3">3dp</dimen>
+    <dimen name="m4">4dp</dimen>
+    <dimen name="m5">5dp</dimen>
+    <dimen name="m7">7dp</dimen>
+    <dimen name="m8">8dp</dimen>
+    <dimen name="m9">9dp</dimen>
+    <dimen name="m10">10dp</dimen>
+    <dimen name="m12">12dp</dimen>
+    <dimen name="m14">14dp</dimen>
+    <dimen name="m15">15dp</dimen>
+    <dimen name="m16">16dp</dimen>
+    <dimen name="m17">17dp</dimen>
+    <dimen name="m18">18dp</dimen>
+    <dimen name="m21">21dp</dimen>
+    <dimen name="m20">20dp</dimen>
+    <dimen name="m22">22dp</dimen>
+    <dimen name="m23">23dp</dimen>
+    <dimen name="m24">24dp</dimen>
+    <dimen name="m25">25dp</dimen>
+    <dimen name="m26">26dp</dimen>
+    <dimen name="m27">27dp</dimen>
+    <dimen name="m28">28dp</dimen>
+    <dimen name="m30">30dp</dimen>
+    <dimen name="m32">32dp</dimen>
+    <dimen name="m34">34dp</dimen>
+    <dimen name="m35">35dp</dimen>
+    <dimen name="m36">36dp</dimen>
+    <dimen name="m38">38dp</dimen>
+    <dimen name="m39">39dp</dimen>
+    <dimen name="m40">40dp</dimen>
+    <dimen name="m41">41dp</dimen>
+    <dimen name="m42">42dp</dimen>
+    <dimen name="m44">44dp</dimen>
+    <dimen name="m45">45dp</dimen>
+    <dimen name="m48">48dp</dimen>
+    <dimen name="m50">50dp</dimen>
+    <dimen name="m53">53dp</dimen>
+    <dimen name="m54">54dp</dimen>
+    <dimen name="m55">55dp</dimen>
+    <dimen name="m56">56dp</dimen>
+    <dimen name="m58">58dp</dimen>
+    <dimen name="m60">60dp</dimen>
+    <dimen name="m64">64dp</dimen>
+    <dimen name="m65">65dp</dimen>
+    <dimen name="m66">66dp</dimen>
+    <dimen name="m68">68dp</dimen>
+    <dimen name="m70">70dp</dimen>
+    <dimen name="m75">75dp</dimen>
+    <dimen name="m78">78dp</dimen>
+    <dimen name="m80">80dp</dimen>
+    <dimen name="m84">84dp</dimen>
+    <dimen name="m85">85dp</dimen>
+    <dimen name="m90">90dp</dimen>
+    <dimen name="m95">95dp</dimen>
+    <dimen name="m100">100dp</dimen>
+    <dimen name="m116">116dp</dimen>
+    <dimen name="m154">140dp</dimen>
+    <dimen name="m250">250dp</dimen>
+    <dimen name="m120">120dp</dimen>
+    <dimen name="m145">145dp</dimen>
+
+    <!-- text sizes -->
+    <dimen name="text_small">12sp</dimen>
+    <dimen name="text_normal">14sp</dimen>
+    <dimen name="text_medium">16sp</dimen>
+    <dimen name="text_large">18sp</dimen>
+    <dimen name="text_xlarge">20sp</dimen>
+
+    <dimen name="body_17">17sp</dimen>
+    <dimen name="body_16">16sp</dimen>
+    <dimen name="body_15">15sp</dimen>
+    <dimen name="body_13">13sp</dimen>
+
+    <dimen name="headline_h1">38sp</dimen>
+    <dimen name="headline_h2">32sp</dimen>
+    <dimen name="headline_h3">24sp</dimen>
+    <dimen name="headline_h4">20sp</dimen>
+    <dimen name="headline_h5">18sp</dimen>
+    <dimen name="headline_h6">16sp</dimen>
+
+    <dimen name="later_spacing_extra_small">1sp</dimen>
+    <dimen name="later_spacing_small">2sp</dimen>
+    <dimen name="later_spacing_large">6sp</dimen>
+    <dimen name="line_spacing_medium">5sp</dimen>
+    <dimen name="line_spacing_7">7sp</dimen>
+
+    <!-- button size -->
+    <dimen name="button_normal_height">44dp</dimen>
+    <dimen name="button_medium_height">52dp</dimen>
+    <dimen name="button_text_size">16sp</dimen>
+    <dimen name="button_medium_width">145dp</dimen>
+    <dimen name="button_normal_width">110dp</dimen>
+    <dimen name="button_small_width">92dp</dimen>
+    <dimen name="button_large_width">170dp</dimen>
+
+    <!-- Others -->
+    <dimen name="edit_height">50dp</dimen>
+    <dimen name="status_bar_padding">20dp</dimen>
+
+    <!-- Weekly Calendar Views -->
+    <dimen name="single_date_cell_width">52dp</dimen>
+    <dimen name="single_date_progress_width">40dp</dimen>
+
+    <!-- splash screen -->
+    <dimen name="singup_logo_size">78dp</dimen>
+    <dimen name="splash_logo_width">256dp</dimen>
+    <dimen name="splash_logo_height">@dimen/m70</dimen>
+
+    <!-- get ready screen -->
+
+
+    <!-- For You screen -->
+    <dimen name="forYou_profile_image">40dp</dimen>
+    <dimen name="m300">300dp</dimen>
+
+    <!-- Bottom navigation view -->
+    <dimen name="design_bottom_navigation_active_text_size" tools:override="true">
+        @dimen/design_bottom_navigation_text_size
+    </dimen>
+
+    <dimen name="common_padding_start">@dimen/m30</dimen>
+    <dimen name="common_padding_end">@dimen/m30</dimen>
+
+    <dimen name="otp_view_item_width">@dimen/m45</dimen>
+    <dimen name="otp_view_item_height">@dimen/m45</dimen>
+    <dimen name="otp_view_item_radius">@dimen/m5</dimen>
+    <dimen name="otp_view_item_spacing">@dimen/m5</dimen>
+    <dimen name="otp_view_item_line_width">@dimen/m2</dimen>
+    <dimen name="otp_view_cursor_width">@dimen/m2</dimen>
+
+</resources>

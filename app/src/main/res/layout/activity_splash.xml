@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="vm"
+            type="com.carelon.whe.ui.splash.SplashViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--<androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <ImageView
+                android:id="@+id/img_logo"
+                android:layout_width="@dimen/splash_logo_size"
+                android:layout_height="@dimen/splash_logo_size"
+                android:layout_marginBottom="@dimen/m90"
+                android:src="@drawable/logo_carelon"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <ImageView
+                android:id="@+id/img_carelon_logo"
+                android:layout_width="178dp"
+                android:layout_height="@dimen/m44"
+                android:layout_marginStart="@dimen/m9"
+                android:src="@drawable/carelon_logo"
+                app:layout_constraintStart_toEndOf="@+id/img_logo"
+                app:layout_constraintTop_toTopOf="@+id/img_logo" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sm_logo"
+                android:layout_marginStart="@dimen/m2"
+                android:layout_marginBottom="@dimen/m1"
+                app:layout_constraintStart_toEndOf="@+id/img_carelon_logo"
+                app:layout_constraintBottom_toBottomOf="@+id/img_carelon_logo"/>
+
+            <TextView
+                style="@style/headline_h4_semiBold_secondary"
+                android:text="@string/str_splash_header_second"
+                android:layout_marginTop="@dimen/m4"
+                app:layout_constraintEnd_toEndOf="@+id/img_carelon_logo"
+                app:layout_constraintTop_toBottomOf="@+id/img_carelon_logo" />
+        </androidx.constraintlayout.widget.ConstraintLayout>-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

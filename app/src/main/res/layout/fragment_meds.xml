@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.carelon.whe.ui.dashboard.meds.MedsViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/drawable_container_rounded_bg"
+        android:paddingTop="@dimen/status_bar_padding"
+        android:paddingStart="@dimen/common_padding_start"
+        android:paddingEnd="@dimen/common_padding_end"
+        android:fillViewport="true">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".ui.dashboard.meds.MedsFragment">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_new_meds"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/drawable_meds_notification_bg"
+                android:visibility="gone"
+                android:padding="@dimen/m20"
+                android:layout_marginTop="@dimen/m30"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_header">
+                <TextView
+                    android:id="@+id/text_prescription"
+                    style="@style/headline_h4_semiBold_secondary"
+                    android:text="@string/str_new_prescription"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/text_found_medication"
+                    style="@style/body_15_medium_secondary"
+                    android:text="@{viewModel.prescriptionCountText}"
+                    android:layout_marginTop="@dimen/m5"
+                    android:lineSpacingExtra="@dimen/line_spacing_7"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_prescription" />
+                <View
+                    android:id="@+id/view_separator"
+                    android:layout_width="0dp"
+                    android:background="@color/button_light_white"
+                    android:layout_height="@dimen/m2"
+                    android:layout_marginTop="@dimen/m15"
+                    app:layout_constraintTop_toBottomOf="@+id/text_found_medication"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_new_meds"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="never"
+                    app:layout_constraintTop_toBottomOf="@+id/view_separator"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="vertical"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_new_prescription_meds"/>
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/m15"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/recycler_new_meds">
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_selected_meds"
+                        style="@style/button_white"
+                        android:layout_weight="1"
+                        android:text="@{viewModel.buttonText}"
+                        android:layout_marginEnd="@dimen/m5"
+                        android:backgroundTint="@color/button_disabled_white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_dont_add"
+                        style="@style/button_large_blue"
+                        android:layout_weight="1"
+                        android:text="@string/str_dont_add"
+                        android:layout_marginStart="@dimen/m5"
+                        android:backgroundTint="@color/button_disabled_gray"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/text_header"
+                style="@style/headline_h2_semiBold_primary"
+                android:layout_marginTop="@dimen/m30"
+                app:layout_goneMarginTop="@dimen/m70"
+                android:text="@string/str_medication"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraint_new_meds" />
+
+            <TextView
+                android:id="@+id/text_remind_me"
+                style="@style/body_medium_regular_primary"
+                android:layout_marginTop="@dimen/m30"
+                android:textStyle="bold"
+                android:text="@string/str_remind_me_everyday"
+                android:drawableStart="@drawable/ic_reminder_clock"
+                android:drawablePadding="@dimen/m10"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_header" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_saved_reminder"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m2"
+                android:layout_marginEnd="@dimen/m20"
+                android:overScrollMode="never"
+                app:layout_constraintTop_toBottomOf="@+id/text_remind_me"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:listitem="@layout/item_medicine_reminder"
+                tools:itemCount="2"/>
+
+            <TextView
+                android:id="@+id/text_get_help_now"
+                style="@style/headline_h4_semiBold_primary"
+                android:layout_marginTop="@dimen/m30"
+                android:text="@string/str_get_help_now"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_saved_reminder" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/const_help"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m10"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_get_help_now"
+                android:background="@drawable/drawable_text_rounded_light_purple_bg">
+                <TextView
+                    android:id="@+id/text_nurseline"
+                    style="@style/headline_h5_semiBold_purple"
+                    android:layout_marginTop="@dimen/m20"
+                    android:layout_marginStart="@dimen/m20"
+                    android:text="@string/str_24_7_helpline"
+                    android:drawableStart="@drawable/ic_nurseline"
+                    android:drawablePadding="@dimen/m10"
+                    android:gravity="center"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+                <TextView
+                    android:id="@+id/text_nurseline_desc"
+                    style="@style/body_15_medium_primary"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="@dimen/m3"
+                    android:layout_marginBottom="@dimen/m20"
+                    android:layout_marginEnd="@dimen/m27"
+                    android:lineSpacingExtra="@dimen/line_spacing_7"
+                    android:text="@string/str_our_nurse_can_assist"
+                    app:layout_constraintEnd_toStartOf="@+id/img_call"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/text_nurseline"
+                    app:layout_constraintTop_toBottomOf="@+id/text_nurseline" />
+                <ImageView
+                    android:id="@+id/img_call"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_call"
+                    android:layout_marginEnd="@dimen/m27"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/text_your_meds"
+                style="@style/headline_h4_semiBold_primary"
+                android:layout_marginTop="@dimen/m30"
+                android:text="@string/str_your_meds"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/const_help" />
+            <TextView
+                android:id="@+id/text_add_meds"
+                style="@style/body_17_semiBold_purple"
+                android:text="@string/str_add_meds"
+                app:layout_constraintBottom_toBottomOf="@+id/text_your_meds"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/text_your_meds" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_saved_medications"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_your_meds"
+                tools:listitem="@layout/item_saved_medication"
+                tools:itemCount="2"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_saved_medications">
+                <TextView
+                    android:id="@+id/text_new_prescription"
+                    style="@style/body_15_medium_gray"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/m10"
+                    android:lineSpacingExtra="@dimen/line_spacing_7"
+                    android:text="@string/str_new_medication_from_prescription" />
+
+                <TextView
+                    android:id="@+id/text_no_meds_description"
+                    style="@style/body_15_medium_gray"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/m20"
+                    android:lineSpacingExtra="@dimen/line_spacing_7"
+                    android:text="@string/str_you_have_no_meds_description"
+                    android:visibility="gone" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m45" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

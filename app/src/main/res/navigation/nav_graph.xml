@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_forYou">
+
+
+    <!-- Dashboard Main Fragments -->
+    <fragment
+        android:id="@+id/fragment_forYou"
+        android:name="com.carelon.whe.ui.dashboard.foryou.ForYouFragment"
+        android:label="fragment_for_you"
+        tools:layout="@layout/fragment_for_you" />
+    <fragment
+        android:id="@+id/fragment_care"
+        android:name="com.carelon.whe.ui.dashboard.care.CareFragment"
+        android:label="fragment_care"
+        tools:layout="@layout/fragment_care" />
+    <fragment
+        android:id="@+id/fragment_meds"
+        android:name="com.carelon.whe.ui.dashboard.meds.MedsFragment"
+        android:label="MedsFragment"
+        tools:layout="@layout/fragment_meds"/>
+    <fragment
+        android:id="@+id/fragment_activity"
+        android:name="com.carelon.whe.ui.dashboard.activity.PhysicalActivityFragment"
+        android:label="fragment_physicsl_activity"
+        tools:layout="@layout/fragment_physical_activity" />
+    <!-- -->
+
+</navigation>

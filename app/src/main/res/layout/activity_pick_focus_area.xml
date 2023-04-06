@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.pick_focus_area.PickFocusAreaActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="pickFocusAreaViewModel"
+            type="com.carelon.whe.ui.pick_focus_area.PickFocusAreaViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/common_padding_start"
+        android:paddingTop="@dimen/m20"
+        android:paddingEnd="@dimen/common_padding_end"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/m48"
+                app:srcCompat="@drawable/ic_back"
+                android:paddingEnd="@dimen/m16"
+                android:paddingTop="@dimen/m16"
+                android:paddingBottom="@dimen/m16"/>
+
+            <TextView
+                android:id="@+id/txt_title"
+                style="@style/headline_h2_semiBold_primary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m24"
+                android:text="@string/str_your_focus_areas"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_back" />
+
+            <TextView
+                android:id="@+id/txt_description"
+                style="@style/body_medium_secondaryLight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m10"
+                android:lineHeight="@dimen/m24"
+                android:lineSpacingExtra="@dimen/later_spacing_large"
+                android:text="@string/str_your_focus_areas_desc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_title" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_focus_areas"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/m30"
+                android:layout_marginBottom="@dimen/m30"
+                android:orientation="vertical"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toTopOf="@+id/btn_continue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_description"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_pick_focus_area" />
+
+            <Button
+                android:id="@+id/btn_continue"
+                style="@style/button_normal_rounded"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/m30"
+                android:background="@drawable/button_gray_rounded"
+                android:backgroundTint="@color/light_gray_add_medication"
+                android:enabled="false"
+                android:minHeight="@dimen/m44"
+                android:text="@string/button_pick_one_option_to_continue"
+                android:textAlignment="center"
+                android:textColor="@color/primary_button_text_color_selector"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+
+
+</layout>

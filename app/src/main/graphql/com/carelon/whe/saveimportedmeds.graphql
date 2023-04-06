@@ -1,0 +1,17 @@
+mutation SaveImportMedication($medication: [AddMedicationInput!]!) {
+  addMedications(
+    input: $medication
+  ) {
+    medications {
+      conditions
+      dosageForm
+      id
+      ndcPackageCode
+      nonProprietaryName
+      notes
+      proprietaryName
+      route
+      strength
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "I want to track meds",
+      "description": "We’ll help you keep track with daily check ins."
+    },
+    {
+      "id": 2,
+      "title": "I want to be active",
+      "description": "We’ll ask you to walk at least a certain number of steps a day."
+    }
+  ]
+}

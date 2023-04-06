@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="medicineReminderViewModel"
+            type="com.carelon.whe.ui.medicine_reminder.MedicineReminderViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:paddingStart="@dimen/common_padding_start"
+        android:paddingTop="@dimen/m20"
+        android:paddingEnd="@dimen/common_padding_end"
+        tools:context=".ui.medicine_reminder.MedicineReminderActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
+
+            <ImageView
+                android:id="@+id/img_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@id/txt_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txt_title"
+                app:srcCompat="@drawable/ic_close_top_bar"
+                app:tint="@color/dark_gray" />
+
+            <TextView
+                android:id="@+id/txt_title"
+                style="@style/headline_h5_medium_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/m10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_delete"
+                style="@style/medicine_reminder_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/m12"
+                android:text="@string/delete_reminder"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view_bg_hour"
+                android:layout_width="@dimen/m50"
+                android:layout_height="@dimen/m38"
+                android:background="@drawable/drawable_text_wheel_highlight_bg"
+                app:layout_constraintBottom_toBottomOf="@id/picker_hour"
+                app:layout_constraintEnd_toEndOf="@id/picker_hour"
+                app:layout_constraintStart_toStartOf="@id/picker_hour"
+                app:layout_constraintTop_toTopOf="@id/picker_hour" />
+
+            <com.carelon.whe.widget.wheel_picker.BaseWheelPickerView
+                android:id="@+id/picker_hour"
+                android:layout_width="@dimen/m50"
+                android:layout_height="@dimen/m250"
+                android:layout_marginEnd="@dimen/m20"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/picker_minutes"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view_bg_minutes"
+                android:layout_width="@dimen/m50"
+                android:layout_height="@dimen/m38"
+                android:background="@drawable/drawable_text_wheel_highlight_bg"
+                app:layout_constraintBottom_toBottomOf="@id/picker_minutes"
+                app:layout_constraintEnd_toEndOf="@id/picker_minutes"
+                app:layout_constraintStart_toStartOf="@id/picker_minutes"
+                app:layout_constraintTop_toTopOf="@id/picker_minutes" />
+
+            <TextView
+                android:id="@+id/txt_colon"
+                style="@style/time_picker_enabled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_colon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/picker_minutes"
+                app:layout_constraintStart_toEndOf="@+id/picker_hour"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.carelon.whe.widget.wheel_picker.BaseWheelPickerView
+                android:id="@+id/picker_minutes"
+                android:layout_width="@dimen/m50"
+                android:layout_height="@dimen/m250"
+                android:layout_marginStart="@dimen/m10"
+                android:layout_marginEnd="@dimen/m20"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view_stroke_hour"
+                android:layout_width="@dimen/m154"
+                android:layout_height="@dimen/m58"
+                android:background="@drawable/drawable_time_picker_bg"
+                app:layout_constraintBottom_toBottomOf="@id/picker_minutes"
+                app:layout_constraintEnd_toEndOf="@id/picker_minutes"
+                app:layout_constraintStart_toStartOf="@+id/picker_hour"
+                app:layout_constraintTop_toTopOf="@id/picker_minutes" />
+
+            <View
+                android:id="@+id/view_bg_format"
+                android:layout_width="@dimen/m58"
+                android:layout_height="@dimen/m38"
+                android:background="@drawable/drawable_text_wheel_highlight_bg"
+                app:layout_constraintBottom_toBottomOf="@id/picker_format"
+                app:layout_constraintEnd_toEndOf="@id/picker_format"
+                app:layout_constraintStart_toStartOf="@id/picker_format"
+                app:layout_constraintTop_toTopOf="@id/picker_format" />
+
+            <com.carelon.whe.widget.wheel_picker.BaseWheelPickerView
+                android:id="@+id/picker_format"
+                android:layout_width="@dimen/m58"
+                android:layout_height="@dimen/m250"
+                android:layout_marginStart="@dimen/m40"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/picker_minutes"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view_stroke_format"
+                android:layout_width="@dimen/m78"
+                android:layout_height="@dimen/m58"
+                android:background="@drawable/drawable_time_picker_bg"
+                app:layout_constraintBottom_toBottomOf="@id/picker_format"
+                app:layout_constraintEnd_toEndOf="@id/picker_format"
+                app:layout_constraintStart_toStartOf="@+id/picker_format"
+                app:layout_constraintTop_toTopOf="@id/picker_format" />
+
+            <TextView
+                android:id="@+id/txt_existing_reminder"
+                style="@style/headline_h6_medium_normal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/m20"
+                android:gravity="center"
+                android:lineSpacingExtra="@dimen/later_spacing_large"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/btn_medicine_reminder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/btn_medicine_reminder"
+                style="@style/button_medium_purple"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/m30"
+                android:background="@drawable/button_gray_rounded"
+                android:enabled="true"
+                android:minHeight="@dimen/m50"
+                android:text="@{medicineReminderViewModel.buttonText}"
+                android:textAlignment="center"
+                android:textColor="@color/primary_button_text_color_selector"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/img_pill"
+                android:layout_width="@dimen/m60"
+                android:layout_height="@dimen/m60"
+                android:layout_marginBottom="@dimen/m26"
+                android:src="@drawable/ic_pill_gray"
+                app:layout_constraintBottom_toTopOf="@+id/txt_permission_needed"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_permission_needed"
+                style="@style/headline_h4_semiBold_primary"
+                android:text="@string/permission_needed"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_permission_needed_desc"
+                style="@style/body_15_medium_gray"
+                android:layout_marginTop="@dimen/m10"
+                android:gravity="center"
+                android:lineSpacingExtra="@dimen/line_spacing_7"
+                android:text="@string/permission_needed_description"
+                android:textSize="@dimen/body_15"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_permission_needed" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m20"
+                android:background="@drawable/drawable_med_reminder_bg"
+                android:paddingStart="@dimen/m18"
+                android:paddingTop="@dimen/m14"
+                android:paddingEnd="@dimen/m21"
+                android:paddingBottom="@dimen/m14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_permission_needed_desc">
+
+                <TextView
+                    android:id="@+id/txt_go_to_settings"
+                    style="@style/body_17_semiBold_purple"
+                    android:text="@string/go_to_settings"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/img_settings"
+                    android:layout_width="@dimen/m18"
+                    android:layout_height="@dimen/m18"
+                    android:layout_marginStart="@dimen/m14"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_go_to_settings"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/txt_go_to_settings"
+                    app:layout_constraintTop_toTopOf="@+id/txt_go_to_settings"
+                    app:srcCompat="@drawable/ic_go_to_settings" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group_permission_allowed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="btn_medicine_reminder,picker_format,picker_hour,picker_minutes,view_bg_hour,view_bg_minutes,view_bg_format,txt_colon,view_stroke_hour,view_stroke_format" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group_permission_denied"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="constraint_settings,txt_permission_needed,txt_permission_needed_desc,img_pill" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</layout>

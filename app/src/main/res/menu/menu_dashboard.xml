@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.carelon.whe.MainActivity">
+    <item
+        android:id="@+id/fragment_forYou"
+        android:icon="@drawable/ic_menu_for_you"
+        android:title="@string/str_forYou"/>
+
+    <item
+        android:id="@+id/fragment_care"
+        android:icon="@drawable/ic_menu_care"
+        android:title="@string/str_care"/>
+
+    <item
+        android:id="@+id/fragment_meds"
+        android:icon="@drawable/ic_menu_meds"
+        android:title="@string/str_meds"/>
+
+    <item
+        android:id="@+id/fragment_activity"
+        android:icon="@drawable/ic_menu_activity"
+        android:title="@string/str_activity"/>
+</menu>
